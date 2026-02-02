@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Markets-focused portfolio: trading logs, market notes, and analytics projects." />
+  <title>Titan Li — Markets Portfolio</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --muted:#9fb0d0;
+      --text:#e9eefc;
+      --line:rgba(233,238,252,.12);
+      --accent:#7aa2ff;
+      --accent2:#44d7b6;
+      --chip:rgba(122,162,255,.14);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(900px 400px at 20% -10%, rgba(122,162,255,.28), transparent 60%),
+                  radial-gradient(900px 400px at 85% 0%, rgba(68,215,182,.18), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1040px; margin:0 auto; padding:28px 18px 72px}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:saturate(160%) blur(14px);
+      background: rgba(11,18,32,.55);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{max-width:1040px; margin:0 auto; padding:14px 18px; display:flex; gap:12px; align-items:center; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:10px}
+    .mark{width:38px; height:38px; border-radius:12px; background: linear-gradient(135deg, rgba(122,162,255,.9), rgba(68,215,182,.85)); box-shadow: var(--shadow)}
+    .brand .title{display:flex; flex-direction:column}
+    .brand h1{font-size:14px; margin:0; letter-spacing:.2px}
+    .brand .sub{font-size:12px; color:var(--muted)}
+
+    nav{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    nav a{font-size:13px; color:var(--muted); padding:8px 10px; border-radius:12px; border:1px solid transparent}
+    nav a:hover{color:var(--text); border-color:var(--line); background: rgba(233,238,252,.04)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(233,238,252,.04);
+      color:var(--text);
+      font-size:13px;
+      cursor:pointer;
+    }
+    .btn:hover{border-color:rgba(122,162,255,.45)}
+    .btn.primary{background: linear-gradient(135deg, rgba(122,162,255,.22), rgba(68,215,182,.14)); border-color:rgba(122,162,255,.35)}
+
+    /* Hero */
+    .hero{padding:40px 0 10px; display:grid; grid-template-columns: 1.35fr .65fr; gap:18px}
+    @media (max-width: 900px){.hero{grid-template-columns:1fr}}
+
+    .card{
+      background: rgba(17,26,46,.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero .left{padding:26px}
+    .kicker{color:var(--muted); font-size:13px; margin-bottom:10px}
+    .headline{font-size:30px; line-height:1.15; margin:0 0 10px}
+    .headline span{color:var(--accent)}
+    .desc{color:var(--muted); margin:0 0 18px; max-width:60ch}
+    .meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .chip{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background: var(--chip); color:var(--text); font-size:12px}
+    .chip b{font-weight:600}
+    .hero .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+
+    .hero .right{padding:18px}
+    .mini h3{margin:0 0 6px; font-size:14px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+    .mini .stack{margin-top:12px; display:flex; flex-direction:column; gap:10px}
+    .mini .item{padding:12px; border-radius:16px; border:1px solid var(--line); background: rgba(233,238,252,.03)}
+
+    /* Section */
+    section{margin-top:26px}
+    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; padding:10px 2px}
+    .sectionHead h2{margin:0; font-size:16px; letter-spacing:.2px}
+    .sectionHead .hint{color:var(--muted); font-size:12px}
+
+    /* Controls */
+    .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .input{
+      width: 280px; max-width: 100%;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(233,238,252,.03);
+      color: var(--text);
+      outline:none;
+    }
+    .select{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(233,238,252,.03);
+      color: var(--text);
+      outline:none;
+    }
+    .select option{background: #0b1220}
+
+    /* Grid */
+    .grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
+    @media (max-width: 980px){.grid{grid-template-columns: repeat(2, 1fr)}}
+    @media (max-width: 640px){.grid{grid-template-columns: 1fr}}
+
+    .logCard{padding:16px; position:relative; overflow:hidden}
+    .logTop{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
+    .tradeId{font-size:12px; color:var(--muted)}
+    .badge{font-size:11px; padding:4px 8px; border-radius:999px; border:1px solid var(--line); background: rgba(68,215,182,.10); color: var(--text)}
+    .logCard h3{margin:10px 0 6px; font-size:15px}
+    .logCard p{margin:0; color:var(--muted); font-size:13px}
+    .tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px}
+    .tag{font-size:11px; padding:4px 8px; border-radius:999px; border:1px solid var(--line); background: rgba(122,162,255,.12); color:var(--text)}
+    .logCard:hover{border-color: rgba(122,162,255,.45)}
+
+    /* Projects */
+    .proj{padding:16px}
+    .proj h3{margin:0 0 6px; font-size:15px}
+    .proj ul{margin:10px 0 0 18px; color:var(--muted); padding:0}
+    .proj li{margin:6px 0}
+
+    /* Footer */
+    footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px}
+    .footRow{display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center}
+
+    /* Print (optional) */
+    @media print{
+      .topbar{display:none}
+      body{background:#fff; color:#000}
+      .card{box-shadow:none}
+      a{text-decoration:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div class="title">
+          <h1>Titan Li</h1>
+          <div class="sub">Markets Portfolio · Trading Logs (no timestamps)</div>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#logs">Trading Logs</a>
+        <a href="#notes">Market Notes</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary" href="#" id="resumeLink">Resume</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="hero">
+      <div class="card left">
+        <div class="kicker">S&T-focused · US equities/options · Catalyst-driven process</div>
+        <h2 class="headline">A personal <span>markets</span> portfolio built for fast desk-level review.</h2>
+        <p class="desc">
+          I document trade setups, execution notes, and post-trade reviews with a consistent risk framework.
+          Logs are intentionally published without visible timestamps.
+        </p>
+        <div class="meta">
+          <span class="chip"><b>Process</b> setup → trigger → risk → exit → review</span>
+          <span class="chip"><b>Tools</b> Bloomberg · Python · SQL · Excel</span>
+          <span class="chip"><b>Focus</b> earnings · catalysts · vol · risk</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="#logs">Browse trading logs</a>
+          <a class="btn" href="#projects">View analytics projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="card right mini">
+        <h3>Quick links</h3>
+        <p>Replace placeholders with your own URLs.</p>
+        <div class="stack">
+          <div class="item">
+            <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
+              <div>
+                <div style="font-weight:600">Resume (PDF)</div>
+                <div style="color:var(--muted); font-size:12px">/assets/TitanLi_Resume.pdf</div>
+              </div>
+              <a class="btn" href="#" id="resumeBtn">Open</a>
+            </div>
+          </div>
+          <div class="item">
+            <div style="font-weight:600">GitHub</div>
+            <div style="color:var(--muted); font-size:12px">github.com/your-handle</div>
+          </div>
+          <div class="item">
+            <div style="font-weight:600">LinkedIn</div>
+            <div style="color:var(--muted); font-size:12px">linkedin.com/in/your-handle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="logs">
+      <div class="sectionHead">
+        <div>
+          <h2>Trading Logs</h2>
+          <div class="hint">Sorted by Trade ID. Dates are intentionally hidden.</div>
+        </div>
+        <div class="controls">
+          <input class="input" id="q" placeholder="Search ticker / catalyst / tag…" />
+          <select class="select" id="filter">
+            <option value="all">All tags</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid" id="logGrid" aria-live="polite"></div>
+    </section>
+
+    <section id="notes">
+      <div class="sectionHead">
+        <div>
+          <h2>Market Notes</h2>
+          <div class="hint">Short, client-style summaries (optional).</div>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card logCard" style="padding:16px">
+          <div class="logTop"><span class="tradeId">NOTE-001</span><span class="badge">Macro</span></div>
+          <h3>Rate-cut expectations vs. cyclicals</h3>
+          <p>One-paragraph setup: what changed, why it matters, what to watch next (levels/catalyst).</p>
+          <div class="tags"><span class="tag">rates</span><span class="tag">rotation</span></div>
+        </article>
+        <article class="card logCard" style="padding:16px">
+          <div class="logTop"><span class="tradeId">NOTE-002</span><span class="badge">Earnings</span></div>
+          <h3>Earnings week watchlist</h3>
+          <p>List your 5–10 names, the key question for each, and the risk to your base case.</p>
+          <div class="tags"><span class="tag">earnings</span><span class="tag">catalyst</span></div>
+        </article>
+        <article class="card logCard" style="padding:16px">
+          <div class="logTop"><span class="tradeId">NOTE-003</span><span class="badge">Flow</span></div>
+          <h3>Flow / positioning read</h3>
+          <p>Summarize price action, volume, and what it suggests about positioning into the next catalyst.</p>
+          <div class="tags"><span class="tag">flow</span><span class="tag">technicals</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="sectionHead">
+        <div>
+          <h2>Projects</h2>
+          <div class="hint">Quant & risk work that supports a markets workflow.</div>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card proj">
+          <h3>Volatility & Risk Toolkit</h3>
+          <div class="tradeId">PRJ-001</div>
+          <ul>
+            <li>ARCH/GARCH baselines with out-of-sample evaluation</li>
+            <li>Correlation/covariance monitoring for regime shifts</li>
+            <li>Simple dashboards for risk limits & exposure snapshots</li>
+          </ul>
+        </article>
+        <article class="card proj">
+          <h3>Event Study / Earnings Playbook</h3>
+          <div class="tradeId">PRJ-002</div>
+          <ul>
+            <li>Catalyst calendar + watchlist triage</li>
+            <li>Pre/post earnings reaction stats (gap, IV, drift)</li>
+            <li>Post-trade review template for consistent learning</li>
+          </ul>
+        </article>
+        <article class="card proj">
+          <h3>Portfolio Construction Experiments</h3>
+          <div class="tradeId">PRJ-003</div>
+          <ul>
+            <li>Mean–variance portfolios with sensitivity to corr/vol shocks</li>
+            <li>Constraint tests (max weight, sector caps)</li>
+            <li>Rebalancing logic and turnover awareness</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="sectionHead">
+        <div>
+          <h2>About</h2>
+          <div class="hint">Keep this short and desk-relevant.</div>
+        </div>
+      </div>
+      <div class="card" style="padding:18px">
+        <p style="margin:0; color:var(--muted)">
+          MSc (Business Analytics) candidate based in Toronto with a computer science background. I focus on US equities/options and
+          build catalyst-driven trade plans with defined risk. This site is a personal learning portfolio.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sectionHead">
+        <div>
+          <h2>Contact</h2>
+          <div class="hint">Use a simple email link for now (fastest).</div>
+        </div>
+      </div>
+      <div class="card" style="padding:18px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between">
+        <div>
+          <div style="font-weight:600">Email</div>
+          <div style="color:var(--muted); font-size:13px">your.email@example.com</div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn" href="mailto:your.email@example.com">Email me</a>
+          <a class="btn" href="#" id="linkedinLink">LinkedIn</a>
+          <a class="btn" href="#" id="githubLink">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footRow">
+        <div>
+          <b style="color:var(--text)">Disclaimer:</b>
+          Personal trading journal for educational purposes only. Not investment advice. No solicitation.
+          Positions may change without notice.
+        </div>
+        <div>© <span id="year"></span> Titan Li</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ========================
+    // Edit these links
+    // ========================
+    const LINKS = {
+      resume: "./assets/TitanLi_Resume.pdf",
+      linkedin: "https://www.linkedin.com/in/your-handle/",
+      github: "https://github.com/your-handle"
+    };
+
+    // ========================
+    // Trading log data (no dates)
+    // Add new entries by copying an object.
+    // ========================
+    const LOGS = [
+      {
+        id: "TL-LOG-012",
+        title: "Earnings setup — NVDA (example)",
+        badge: "Earnings",
+        summary: "Pre-earnings plan with trigger level, invalidation, and IV considerations. Focus on reaction ranges and risk limits.",
+        tags: ["earnings", "vol", "technicals"],
+        link: "#" // replace with a real URL like "./logs/tl-log-012.html"
+      },
+      {
+        id: "TL-LOG-011",
+        title: "Momentum breakout — small-cap (example)",
+        badge: "Technicals",
+        summary: "Momentum continuation plan: consolidation range, volume confirmation, stop placement, and exit plan.",
+        tags: ["technicals", "momentum"],
+        link: "#"
+      },
+      {
+        id: "TL-LOG-010",
+        title: "Event-driven — corporate action (example)",
+        badge: "Event",
+        summary: "Trade structured around a corporate catalyst with defined downside, timeline, and key monitoring items.",
+        tags: ["event", "catalyst", "risk"],
+        link: "#"
+      },
+      {
+        id: "TL-LOG-009",
+        title: "Sector rotation — defensives vs cyclicals (example)",
+        badge: "Macro",
+        summary: "Rotation read using relative strength and correlation shifts; focuses on what would change the view.",
+        tags: ["rotation", "rates", "risk"],
+        link: "#"
+      },
+      {
+        id: "TL-LOG-008",
+        title: "Options vol filter — IV vs realized (example)",
+        badge: "Options",
+        summary: "Used simple IV vs RV checks to filter entries and align sizing with volatility regime.",
+        tags: ["options", "vol", "risk"],
+        link: "#"
+      },
+      {
+        id: "TL-LOG-007",
+        title: "Range trade — mean reversion (example)",
+        badge: "Mean Rev",
+        summary: "Mean reversion setup with clear invalidation and time stop; focuses on liquidity and risk control.",
+        tags: ["mean-reversion", "technicals"],
+        link: "#"
+      }
+    ];
+
+    // ========================
+    // Rendering
+    // ========================
+    const grid = document.getElementById('logGrid');
+    const q = document.getElementById('q');
+    const filter = document.getElementById('filter');
+
+    function uniqueTags(items){
+      const set = new Set();
+      items.forEach(x => x.tags.forEach(t => set.add(t)));
+      return [...set].sort((a,b) => a.localeCompare(b));
+    }
+
+    function mountFilter(){
+      const tags = uniqueTags(LOGS);
+      tags.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = t;
+        filter.appendChild(opt);
+      });
+    }
+
+    function matches(log, query, tag){
+      const hay = `${log.id} ${log.title} ${log.summary} ${log.badge} ${log.tags.join(' ')}`.toLowerCase();
+      const qOk = !query || hay.includes(query);
+      const tOk = tag === 'all' || log.tags.includes(tag);
+      return qOk && tOk;
+    }
+
+    function render(){
+      const query = (q.value || '').trim().toLowerCase();
+      const tag = filter.value;
+      const filtered = LOGS
+        .slice()
+        .sort((a,b) => b.id.localeCompare(a.id))
+        .filter(x => matches(x, query, tag));
+
+      grid.innerHTML = '';
+      if(filtered.length === 0){
+        const empty = document.createElement('div');
+        empty.className = 'card';
+        empty.style.padding = '16px';
+        empty.style.color = 'var(--muted)';
+        empty.textContent = 'No matches. Try a different keyword or tag.';
+        grid.appendChild(empty);
+        return;
+      }
+
+      filtered.forEach(log => {
+        const a = document.createElement('a');
+        a.className = 'card logCard';
+        a.href = log.link || '#';
+        a.setAttribute('aria-label', `${log.id}: ${log.title}`);
+
+        const top = document.createElement('div');
+        top.className = 'logTop';
+        top.innerHTML = `<span class="tradeId">${log.id}</span><span class="badge">${log.badge}</span>`;
+
+        const h = document.createElement('h3');
+        h.textContent = log.title;
+
+        const p = document.createElement('p');
+        p.textContent = log.summary;
+
+        const tags = document.createElement('div');
+        tags.className = 'tags';
+        log.tags.forEach(t => {
+          const s = document.createElement('span');
+          s.className = 'tag';
+          s.textContent = t;
+          tags.appendChild(s);
+        });
+
+        a.appendChild(top);
+        a.appendChild(h);
+        a.appendChild(p);
+        a.appendChild(tags);
+        grid.appendChild(a);
+      });
+    }
+
+    // Wire links
+    const resumeLink = document.getElementById('resumeLink');
+    const resumeBtn = document.getElementById('resumeBtn');
+    const linkedinLink = document.getElementById('linkedinLink');
+    const githubLink = document.getElementById('githubLink');
+
+    function setLinks(){
+      resumeLink.href = LINKS.resume;
+      resumeBtn.href = LINKS.resume;
+      linkedinLink.href = LINKS.linkedin;
+      githubLink.href = LINKS.github;
+      linkedinLink.target = githubLink.target = '_blank';
+      linkedinLink.rel = githubLink.rel = 'noreferrer';
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    mountFilter();
+    setLinks();
+    render();
+
+    q.addEventListener('input', render);
+    filter.addEventListener('change', render);
+  </script>
+</body>
+</html>
