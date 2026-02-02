@@ -5,7 +5,7 @@
 // Configuration - Edit these links
 const LINKS = {
   resume: "./TitanLi_Resume.pdf",
-  linkedin: "https://www.linkedin.com/in/titannli",
+  linkedin: "https://www.linkedin.com/in/titannli/",
   github: "https://github.com/Legend8583"
 };
 
@@ -40,56 +40,6 @@ const LOGS = [
     tags: ["event", "merger-arb", "catalyst", "risk"],
     riskReward: "1:2.8",
     holdTime: "45d",
-    link: "#"
-  },
-  {
-    id: "TL-LOG-009",
-    title: "Sector Rotation — Defensives vs. Cyclicals",
-    badge: "Macro",
-    summary: "Relative strength rotation play on rate expectations shift. Long XLP/short XLI pair trade with correlation-adjusted sizing. Monitoring Fed commentary and yield curve dynamics.",
-    tags: ["rotation", "pairs", "macro", "rates"],
-    riskReward: "1:2.5",
-    holdTime: "12d",
-    link: "#"
-  },
-  {
-    id: "TL-LOG-008",
-    title: "Options Vol Filter — Iron Condor Strategy",
-    badge: "Options",
-    summary: "High IV rank environment (>80th percentile) with earnings behind us. Iron condor positioned for range-bound price action with 70% probability of profit. Delta-neutral with gamma management plan.",
-    tags: ["options", "vol", "theta", "risk"],
-    riskReward: "1:1.8",
-    holdTime: "21d",
-    link: "#"
-  },
-  {
-    id: "TL-LOG-007",
-    title: "Mean Reversion — Oversold Bounce Play",
-    badge: "Mean Rev",
-    summary: "Statistically oversold condition (>2 std dev below 20-day MA) with intact fundamentals. Entry with tight stops, targeting return to mean. Time stop at 3 sessions if no follow-through.",
-    tags: ["mean-reversion", "technicals", "statistics"],
-    riskReward: "1:2.2",
-    holdTime: "3d",
-    link: "#"
-  },
-  {
-    id: "TL-LOG-006",
-    title: "Earnings Straddle — High IV Volatility Play",
-    badge: "Earnings",
-    summary: "Long straddle positioned for binary catalyst with IV at 95th percentile. Expecting >8% move vs. 6% implied. Entry 2 days before announcement, partial profit-taking at 50% on any direction.",
-    tags: ["earnings", "options", "vol", "straddle"],
-    riskReward: "1:4.2",
-    holdTime: "48h",
-    link: "#"
-  },
-  {
-    id: "TL-LOG-005",
-    title: "Breakout Trade — Chart Pattern Recognition",
-    badge: "Technicals",
-    summary: "Ascending triangle breakout with volume confirmation above 1.5x average. Entry above resistance with measured move target. Stop loss 1 ATR below breakout level.",
-    tags: ["technicals", "breakout", "patterns"],
-    riskReward: "1:3.0",
-    holdTime: "7d",
     link: "#"
   }
 ];
@@ -225,20 +175,34 @@ function setupLinks() {
     resumeLink: document.getElementById('resumeLink'),
     resumeBtn: document.getElementById('resumeBtn'),
     linkedinLink: document.getElementById('linkedinLink'),
-    githubLink: document.getElementById('githubLink')
+    linkedinBtn: document.getElementById('linkedinBtn'),
+    githubLink: document.getElementById('githubLink'),
+    githubBtn: document.getElementById('githubBtn')
   };
 
   if (elements.resumeLink) elements.resumeLink.href = LINKS.resume;
   if (elements.resumeBtn) elements.resumeBtn.href = LINKS.resume;
+  
   if (elements.linkedinLink) {
     elements.linkedinLink.href = LINKS.linkedin;
     elements.linkedinLink.target = '_blank';
     elements.linkedinLink.rel = 'noopener noreferrer';
   }
+  if (elements.linkedinBtn) {
+    elements.linkedinBtn.href = LINKS.linkedin;
+    elements.linkedinBtn.target = '_blank';
+    elements.linkedinBtn.rel = 'noopener noreferrer';
+  }
+  
   if (elements.githubLink) {
     elements.githubLink.href = LINKS.github;
     elements.githubLink.target = '_blank';
     elements.githubLink.rel = 'noopener noreferrer';
+  }
+  if (elements.githubBtn) {
+    elements.githubBtn.href = LINKS.github;
+    elements.githubBtn.target = '_blank';
+    elements.githubBtn.rel = 'noopener noreferrer';
   }
 }
 
