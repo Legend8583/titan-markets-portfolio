@@ -20,7 +20,7 @@ const LOGS = [
     tags: ["earnings", "options", "vol", "tech"],
     riskReward: "1:3.5",
     holdTime: "72h",
-    link: "#"
+    link: "./logs/TL-LOG-012.html"
   },
   {
     id: "TL-LOG-011",
@@ -30,7 +30,7 @@ const LOGS = [
     tags: ["technicals", "momentum", "biotech", "catalyst"],
     riskReward: "1:3.2",
     holdTime: "5d",
-    link: "#"
+    link: "./logs/TL-LOG-011.html"
   },
   {
     id: "TL-LOG-010",
