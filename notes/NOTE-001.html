@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOTE-001: Rate Expectations & Sector Rotation — Titan Li</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .note-detail {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .note-header {
+      margin-bottom: 40px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+    .note-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .section {
+      background: var(--card-glass);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 24px 0;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin: 0 0 20px;
+      color: var(--text);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+    .section h3 {
+      font-size: 16px;
+      margin: 24px 0 12px;
+      color: var(--accent);
+    }
+    .section p, .section li {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 12px 0;
+    }
+    .section ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+    .highlight {
+      background: rgba(107, 158, 255, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <img class="avatar" src="../avatar.png" alt="Titan Li" onerror="this.style.display='none'">
+        <div class="title">
+          <h1>Titan Li</h1>
+          <div class="sub">Research Note Detail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-detail">
+    <a href="../index.html#notes" class="back-link">← Back to Portfolio</a>
+    
+    <div class="note-header">
+      <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+        <span class="badge">Macro</span>
+        <span class="tradeId">NOTE-001</span>
+      </div>
+      <h1 class="note-title">Rate Expectations & Sector Rotation</h1>
+      
+      <div class="tags" style="margin-top: 16px;">
+        <span class="tag">rates</span>
+        <span class="tag">rotation</span>
+        <span class="tag">macro</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="section">
+      <h2>📊 Overview</h2>
+      <p>
+        This research examines the relationship between Federal Reserve policy shifts and sector relative strength,
+        with specific focus on how rate expectations drive capital rotation between cyclical and defensive sectors.
+      </p>
+      <div class="highlight">
+        <strong>Key Insight:</strong> Historical analysis shows that anticipation of rate changes drives sector
+        rotation 3-6 months before actual policy implementation, creating actionable trading opportunities
+        in relative value strategies.
+      </div>
+    </div>
+
+    <!-- Macro Context -->
+    <div class="section">
+      <h2>🌍 Macro Context</h2>
+      
+      <h3>Current Environment</h3>
+      <p>
+        The Federal Reserve's messaging around terminal rates and the path forward has significant implications
+        for sector allocation. As rate expectations shift, we observe predictable patterns in sector performance:
+      </p>
+      <ul>
+        <li><strong>Rising Rate Expectations:</strong> Favor Financials (XLF), Energy (XLE), Materials (XLB)</li>
+        <li><strong>Falling Rate Expectations:</strong> Favor Utilities (XLP), Real Estate (XLRE), Consumer Staples (XLP)</li>
+        <li><strong>Rate Uncertainty:</strong> Favor Healthcare (XLV), Tech (XLK) with strong FCF</li>
+      </ul>
+
+      <h3>Historical Context</h3>
+      <p>
+        Examining the last 3 rate cycles (2015-2018, 2019, 2022-2024) reveals consistent patterns:
+      </p>
+      <ul>
+        <li>Financials outperform during rising rate environment (+12-15% relative to SPY)</li>
+        <li>Utilities underperform during tightening cycles (-8-12% relative to SPY)</li>
+        <li>Tech rotation depends on growth vs. value dynamics within sector</li>
+      </ul>
+    </div>
+
+    <!-- Analytical Framework -->
+    <div class="section">
+      <h2>🔬 Analytical Framework</h2>
+      
+      <h3>Correlation Analysis</h3>
+      <p>
+        We track rolling 60-day correlations between sector ETFs and key rate indicators:
+      </p>
+      <ul>
+        <li>10-Year Treasury Yield (proxy for long-term rates)</li>
+        <li>2-Year Treasury Yield (proxy for Fed policy expectations)</li>
+        <li>2s10s Spread (yield curve steepness)</li>
+        <li>Fed Funds Futures (implied policy path)</li>
+      </ul>
+
+      <h3>Relative Strength Metrics</h3>
+      <p>
+        Key indicators for identifying rotation opportunities:
+      </p>
+      <ul>
+        <li>Sector/SPY ratio momentum (20, 50, 200-day MAs)</li>
+        <li>Breadth divergences within sectors (advancing vs. declining stocks)</li>
+        <li>Volume-weighted relative strength index</li>
+        <li>Option flow and positioning (skew, put/call ratios)</li>
+      </ul>
+    </div>
+
+    <!-- Trading Implications -->
+    <div class="section">
+      <h2>💡 Trading Implications</h2>
+      
+      <h3>Long/Short Pairs</h3>
+      <p>
+        Implement rate-driven rotation through sector pairs trades:
+      </p>
+      <ul>
+        <li><strong>Rising Rates:</strong> Long XLF / Short XLU (Financials vs. Utilities)</li>
+        <li><strong>Falling Rates:</strong> Long XLU / Short XLF (Utilities vs. Financials)</li>
+        <li><strong>Steepening Curve:</strong> Long XLF / Short XLB (Banks benefit from steep curve)</li>
+      </ul>
+
+      <h3>Timing Considerations</h3>
+      <p>
+        Optimal entry timing based on Fed communication and data releases:
+      </p>
+      <ul>
+        <li>Position ahead of FOMC meetings (2-3 weeks prior)</li>
+        <li>Adjust after CPI/PCE releases (inflation expectations shifts)</li>
+        <li>Monitor Fed speakers for policy pivot signals</li>
+        <li>Track positioning via CFTC Commitment of Traders data</li>
+      </ul>
+    </div>
+
+    <!-- Risk Factors -->
+    <div class="section">
+      <h2>⚠️ Risk Factors</h2>
+      <ul>
+        <li><strong>Policy Uncertainty:</strong> Fed communication can be inconsistent or data-dependent</li>
+        <li><strong>Correlation Breakdown:</strong> Historical relationships may not hold in unique environments</li>
+        <li><strong>Sector-Specific News:</strong> Idiosyncratic events can override macro themes</li>
+        <li><strong>Global Factors:</strong> ECB, BOJ policies can influence US sector dynamics</li>
+        <li><strong>Liquidity Conditions:</strong> QT/QE programs affect sector performance independently</li>
+      </ul>
+    </div>
+
+    <!-- Related Research -->
+    <div class="section">
+      <h2>🔗 Related Analysis</h2>
+      <p>
+        <strong>Connected Research:</strong> This framework complements NOTE-002 (Earnings Playbook) 
+        by providing macro context for sector-specific earnings trades.
+      </p>
+      <p>
+        <strong>Trading Applications:</strong> See TL-LOG-009 for practical implementation of 
+        sector rotation pairs strategy.
+      </p>
+    </div>
+
+  </div>
+
+  <footer style="max-width: 900px; margin: 0 auto; padding: 24px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px;">
+    <div style="text-align: center;">
+      <strong style="color: var(--text);">Disclaimer:</strong> 
+      Educational research for demonstration purposes only. Not investment advice.
+      <div style="margin-top: 8px;">
+        <a href="../index.html#notes" style="color: var(--accent);">← Return to Portfolio</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
