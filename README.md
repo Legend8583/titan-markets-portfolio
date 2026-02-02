@@ -9,8 +9,10 @@ Personal markets portfolio built for quick desk-level review: trading logs, mark
 ## Structure
 - `index.html` — homepage
 - `style.css` — styles
-- `main.js` — log list + search/filter
+- `main.js` — lists + search/filter
 - `/logs` — individual trading log pages (no timestamps; Trade IDs only)
+- `/notes` — market notes pages
+- `/projects` — project pages/case studies
 - `/assets` — avatar, resume, images
 
 ## Disclaimer
