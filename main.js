@@ -5,7 +5,7 @@
 // Configuration - Edit these links
 const LINKS = {
   resume: "./TitanLi_Resume.pdf",
-  linkedin: "https://www.linkedin.com/in/titanli",
+  linkedin: "https://www.linkedin.com/in/titannli",
   github: "https://github.com/Legend8583"
 };
 
