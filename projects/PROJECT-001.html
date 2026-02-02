@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECT-001: Volatility & Risk Analytics Toolkit — Titan Li</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .project-detail {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .project-header {
+      margin-bottom: 40px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+    .project-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .section {
+      background: var(--card-glass);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 24px 0;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin: 0 0 20px;
+      color: var(--text);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+    .section h3 {
+      font-size: 16px;
+      margin: 24px 0 12px;
+      color: var(--accent);
+    }
+    .section p, .section li {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 12px 0;
+    }
+    .section ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+    .code-block {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--accent2);
+      overflow-x: auto;
+    }
+    .highlight {
+      background: rgba(107, 158, 255, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <img class="avatar" src="../avatar.png" alt="Titan Li" onerror="this.style.display='none'">
+        <div class="title">
+          <h1>Titan Li</h1>
+          <div class="sub">Project Detail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-detail">
+    <a href="../index.html#projects" class="back-link">← Back to Portfolio</a>
+    
+    <div class="project-header">
+      <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+        <span class="tradeId">PROJECT-001</span>
+      </div>
+      <h1 class="project-title">Volatility & Risk Analytics Toolkit</h1>
+      
+      <div class="tech-stack" style="margin-top: 16px;">
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">NumPy</span>
+        <span class="tech-badge">Pandas</span>
+        <span class="tech-badge">Scipy</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="section">
+      <h2>📊 Project Overview</h2>
+      <p>
+        Comprehensive Python toolkit for volatility forecasting, risk analytics, and portfolio monitoring.
+        Built to support systematic trading workflow with emphasis on options portfolio management and
+        risk factor decomposition.
+      </p>
+      <div class="highlight">
+        <strong>Core Objective:</strong> Provide real-time risk monitoring and volatility forecasting
+        capabilities to inform position sizing, option structure selection, and portfolio hedging decisions.
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="section">
+      <h2>✨ Key Features</h2>
+      
+      <h3>1. ARCH/GARCH Volatility Forecasting</h3>
+      <p>
+        Implementation of GARCH(1,1) and EGARCH models for volatility forecasting with out-of-sample validation:
+      </p>
+      <div class="code-block">
+# GARCH(1,1) Model Implementation
+from arch import arch_model
+
+# Fit GARCH model to returns
+model = arch_model(returns, vol='Garch', p=1, q=1)
+results = model.fit(disp='off')
+
+# Generate volatility forecast
+forecast = results.forecast(horizon=5)
+volatility_forecast = np.sqrt(forecast.variance.values[-1, :])
+      </div>
+      <ul>
+        <li>Automated parameter optimization via maximum likelihood</li>
+        <li>Rolling window backtesting for model validation</li>
+        <li>Comparison vs. realized volatility (historical accuracy tracking)</li>
+      </ul>
+
+      <h3>2. Real-Time Correlation Matrix Monitoring</h3>
+      <p>
+        Dynamic correlation tracking to identify regime shifts and diversification breakdown:
+      </p>
+      <ul>
+        <li>Exponentially weighted moving average (EWMA) correlations</li>
+        <li>Heat map visualization with threshold alerts</li>
+        <li>Principal Component Analysis for factor extraction</li>
+        <li>Regime detection algorithm (stable vs. crisis correlations)</li>
+      </ul>
+
+      <h3>3. Portfolio Risk Dashboards</h3>
+      <p>
+        Comprehensive risk metrics for portfolio monitoring:
+      </p>
+      <ul>
+        <li><strong>VaR (Value at Risk):</strong> Historical and parametric methods at 95%/99% confidence</li>
+        <li><strong>CVaR (Conditional VaR):</strong> Expected shortfall beyond VaR threshold</li>
+        <li><strong>Stress Testing:</strong> Scenario analysis for market shocks (2008, 2020 analogs)</li>
+        <li><strong>Factor Exposures:</strong> Beta decomposition by sector, size, momentum</li>
+      </ul>
+
+      <h3>4. Greeks Tracking & Delta-Hedging</h3>
+      <p>
+        Options portfolio analytics and automated hedging signals:
+      </p>
+      <ul>
+        <li>Real-time Greeks calculation (Delta, Gamma, Vega, Theta)</li>
+        <li>Portfolio-level Greeks aggregation</li>
+        <li>Delta-neutral hedging recommendations (# shares to hedge)</li>
+        <li>Gamma scalping P&L attribution</li>
+      </ul>
+    </div>
+
+    <!-- Technical Implementation -->
+    <div class="section">
+      <h2>🔧 Technical Implementation</h2>
+      
+      <h3>Architecture</h3>
+      <ul>
+        <li><strong>Data Layer:</strong> PostgreSQL for historical data storage, Redis for real-time caching</li>
+        <li><strong>Computation Layer:</strong> NumPy/Pandas for vectorized calculations</li>
+        <li><strong>Visualization:</strong> Plotly Dash for interactive dashboards</li>
+        <li><strong>API Integration:</strong> Yahoo Finance, Alpha Vantage for market data</li>
+      </ul>
+
+      <h3>Performance Optimization</h3>
+      <ul>
+        <li>Numba JIT compilation for compute-intensive loops (10x speedup)</li>
+        <li>Multiprocessing for parallel correlation calculations across assets</li>
+        <li>Efficient data structures (arrays vs. DataFrames where appropriate)</li>
+      </ul>
+
+      <h3>Code Example: VaR Calculation</h3>
+      <div class="code-block">
+import numpy as np
+from scipy import stats
+
+def calculate_var(returns, confidence=0.95, method='historical'):
+    """
+    Calculate Value at Risk using historical or parametric method
+    """
+    if method == 'historical':
+        return np.percentile(returns, (1-confidence)*100)
+    
+    elif method == 'parametric':
+        mu = returns.mean()
+        sigma = returns.std()
+        z_score = stats.norm.ppf(1-confidence)
+        return mu + sigma * z_score
+    
+# Usage
+daily_returns = portfolio_df['returns']
+var_95 = calculate_var(daily_returns, confidence=0.95)
+print(f"1-Day VaR (95%): ${var_95 * portfolio_value:,.0f}")
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="section">
+      <h2>💡 Use Cases & Applications</h2>
+      
+      <h3>Position Sizing</h3>
+      <p>
+        Use volatility forecasts to adjust position sizes based on expected risk:
+      </p>
+      <ul>
+        <li>Target volatility approach: size = (target_vol / forecast_vol) × base_size</li>
+        <li>Reduce exposure ahead of known vol events (earnings, FOMC)</li>
+      </ul>
+
+      <h3>Options Strategy Selection</h3>
+      <p>
+        Compare realized vs. implied volatility to identify mispricing:
+      </p>
+      <ul>
+        <li>GARCH forecast < IV → sell options (iron condors, credit spreads)</li>
+        <li>GARCH forecast > IV → buy options (long straddles, verticals)</li>
+      </ul>
+
+      <h3>Portfolio Hedging</h3>
+      <p>
+        Monitor portfolio Greeks and implement dynamic hedging:
+      </p>
+      <ul>
+        <li>Delta hedge when net delta exceeds ±0.25</li>
+        <li>Vega hedge with opposite-sign options when vega > threshold</li>
+      </ul>
+    </div>
+
+    <!-- Future Enhancements -->
+    <div class="section">
+      <h2>🚀 Future Enhancements</h2>
+      <ul>
+        <li>Machine learning models (LSTM) for volatility forecasting</li>
+        <li>Integration with IB API for automated hedge execution</li>
+        <li>Multi-asset correlation regime detection using HMM</li>
+        <li>Real-time alerts via email/SMS for risk threshold breaches</li>
+        <li>Backtesting framework for vol-based trading strategies</li>
+      </ul>
+    </div>
+
+    <!-- Related Work -->
+    <div class="section">
+      <h2>🔗 Related Projects</h2>
+      <p>
+        <strong>Integration with Trading Logs:</strong> This toolkit directly supports the risk analysis
+        in TL-LOG-012 (NVDA Call Spread) and TL-LOG-008 (Iron Condor Strategy).
+      </p>
+      <p>
+        <strong>Research Application:</strong> Volatility regime detection feeds into NOTE-003
+        (Volatility Regime Analysis).
+      </p>
+    </div>
+
+  </div>
+
+  <footer style="max-width: 900px; margin: 0 auto; padding: 24px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px;">
+    <div style="text-align: center;">
+      <strong style="color: var(--text);">Disclaimer:</strong> 
+      Educational project for demonstration purposes only. Not investment advice.
+      <div style="margin-top: 8px;">
+        <a href="../index.html#projects" style="color: var(--accent);">← Return to Portfolio</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
