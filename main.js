@@ -18,7 +18,8 @@ const LOGS = [
     badge: "Earnings",
     summary: "Pre-earnings vertical call spread positioned for moderate upside. Entry triggered on consolidation break with defined risk at 2% portfolio. Exit targets set at 25% and 50% IV crush levels.",
     tags: ["earnings", "options", "vol", "tech"],
-    riskReward: "1:3.5",
+    returnPct: "+140%",
+    catalyst: "Earnings Beat",
     holdTime: "72h",
     link: "./logs/TL-LOG-012.html"
   },
@@ -28,7 +29,8 @@ const LOGS = [
     badge: "Technicals",
     summary: "FDA catalyst-driven momentum play with clean volume confirmation. Entry at resistance break, stop below consolidation range. Risk/reward 1:3 with trailing stop methodology.",
     tags: ["technicals", "momentum", "biotech", "catalyst"],
-    riskReward: "1:3.2",
+    returnPct: "+85%",
+    catalyst: "FDA Approval",
     holdTime: "5d",
     link: "./logs/TL-LOG-011.html"
   },
@@ -38,7 +40,8 @@ const LOGS = [
     badge: "Event",
     summary: "Cash/stock merger arbitrage with regulatory approval catalyst. Spread trading at 4.2% discount with 45-day timeline. Defined downside protection at deal break scenarios.",
     tags: ["event", "merger-arb", "catalyst", "risk"],
-    riskReward: "1:2.8",
+    returnPct: "+18%",
+    catalyst: "Deal Closure",
     holdTime: "45d",
     link: "#"
   }
@@ -121,16 +124,29 @@ function renderLogGrid() {
     const title = document.createElement('h3');
     title.textContent = log.title;
 
-    // Risk metrics (if available)
-    if (log.riskReward || log.holdTime) {
+    card.appendChild(top);
+    card.appendChild(title);
+
+    // Catalyst subtitle (if available)
+    if (log.catalyst) {
+      const catalystLine = document.createElement('div');
+      catalystLine.style.cssText = 'font-size: 12px; color: var(--muted); margin: 4px 0 8px; font-family: JetBrains Mono, monospace;';
+      catalystLine.textContent = `Catalyst: ${log.catalyst}`;
+      card.appendChild(catalystLine);
+    }
+
+    // Return and metrics display (if available)
+    if (log.returnPct || log.holdTime) {
       const metricsContainer = document.createElement('div');
       metricsContainer.className = 'risk-metrics';
       
-      if (log.riskReward) {
-        const rrMetric = document.createElement('div');
-        rrMetric.className = 'metric';
-        rrMetric.innerHTML = `<span class="label">R:R</span><span class="value">${log.riskReward}</span>`;
-        metricsContainer.appendChild(rrMetric);
+      if (log.returnPct) {
+        const isPositive = log.returnPct.startsWith('+');
+        const isNegative = log.returnPct.startsWith('-');
+        const returnMetric = document.createElement('div');
+        returnMetric.className = `metric ${isPositive ? 'positive' : isNegative ? 'negative' : ''}`;
+        returnMetric.innerHTML = `<span class="label">Return</span><span class="value" style="font-size: 16px; font-weight: 700;">${log.returnPct}</span>`;
+        metricsContainer.appendChild(returnMetric);
       }
       
       if (log.holdTime) {
@@ -140,12 +156,7 @@ function renderLogGrid() {
         metricsContainer.appendChild(holdMetric);
       }
       
-      card.appendChild(top);
-      card.appendChild(title);
       card.appendChild(metricsContainer);
-    } else {
-      card.appendChild(top);
-      card.appendChild(title);
     }
 
     const summary = document.createElement('p');
