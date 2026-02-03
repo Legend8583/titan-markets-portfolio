@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TL-LOG-002: SOXL Tactical Long — Titan Li</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .log-detail {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .log-header {
+      margin-bottom: 40px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+    .log-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .log-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .meta-item {
+      background: var(--card-glass);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .meta-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .section {
+      background: var(--card-glass);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 24px 0;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin: 0 0 20px;
+      color: var(--text);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+    .section h3 {
+      font-size: 16px;
+      margin: 24px 0 12px;
+      color: var(--accent);
+    }
+    .section p, .section li {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 12px 0;
+    }
+    .section ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+    .code-block {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--accent2);
+      overflow-x: auto;
+    }
+    .highlight {
+      background: rgba(107, 158, 255, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+    }
+    .risk-box {
+      background: rgba(255, 107, 157, 0.1);
+      border-left: 3px solid #ff6b9d;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <img class="avatar" src="../avatar.png" alt="Titan Li" onerror="this.style.display='none'">
+        <div class="title">
+          <h1>Titan Li</h1>
+          <div class="sub">Trading Log Detail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="log-detail">
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+
+    <div class="log-header">
+      <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+        <span class="badge">Macro + Catalyst</span>
+        <span class="tradeId">TL-LOG-002</span>
+      </div>
+
+      <h1 class="log-title">SOXL Tactical Long — Post-Earnings Relief Bounce</h1>
+
+      <div class="log-meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Return</div>
+          <div class="meta-value positive">+10.26%</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Hold Time</div>
+          <div class="meta-value">1d</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Strategy</div>
+          <div class="meta-value">Mean Reversion</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Entry Price</div>
+          <div class="meta-value">$31.28</div>
+        </div>
+      </div>
+
+      <div class="tags" style="margin-top: 16px;">
+        <span class="tag">soxl</span>
+        <span class="tag">semiconductors</span>
+        <span class="tag">catalyst</span>
+        <span class="tag">mean-reversion</span>
+        <span class="tag">tactical</span>
+      </div>
+    </div>
+
+    <!-- Trade Thesis -->
+    <div class="section">
+      <h2>📊 Trade Thesis</h2>
+      <p>
+        Tactical long in a 3x leveraged semiconductor ETF to capture a short-dated relief bounce after a high-quality sector catalyst.
+        The goal was to monetize a positioning reset in semiconductors (high beta proxy for AI sentiment) in a weak but non-crisis tape.
+      </p>
+      <div class="highlight">
+        <strong>Core Thesis:</strong> A strong sector leader earnings print can act as a “permission slip” for near-term risk re-on,
+        driving short covering and re-risking flows into the broader semiconductor complex. SOXL offered efficient beta for a 1–2 session horizon.
+      </div>
+    </div>
+
+    <!-- Setup & Entry -->
+    <div class="section">
+      <h2>🎯 Setup & Entry Criteria</h2>
+
+      <h3>Market Context</h3>
+      <ul>
+        <li><strong>Tape:</strong> Choppy / risk-off drift into late November with elevated volatility</li>
+        <li><strong>Sector role:</strong> Semiconductors as high-beta proxy for AI infrastructure sentiment</li>
+        <li><strong>Opportunity:</strong> Tactical mean reversion after drawdown, not a long-horizon thesis</li>
+      </ul>
+
+      <h3>Catalyst</h3>
+      <ul>
+        <li>NVDA earnings (Nov 19) reinforced AI demand narrative and reduced near-term downside for semiconductors</li>
+        <li>Expected follow-through: short covering + momentum re-entry + benchmark rebalancing into semis</li>
+      </ul>
+
+      <h3>Entry Trigger</h3>
+      <p>
+        Entered on Fri, Nov 21 after the initial earnings reaction, when price action suggested downside momentum was fading and SOXL was stabilizing
+        rather than accelerating lower.
+      </p>
+
+      <div class="code-block">
+Instrument: SOXL (3x daily leveraged semiconductor ETF)
+Entry: $31.28 (avg) — Fri, Nov 21, 2025
+
+Setup: Post-catalyst relief bounce in weak tape
+Trigger: Stabilization after sell pressure fades (no new lows + improved intraday follow-through)
+
+Time Horizon: 1–2 sessions (product design aligned)
+
+Profit Plan: Sell into the first clean bounce / relief move
+      </div>
+    </div>
+
+    <!-- Risk Management -->
+    <div class="section">
+      <h2>🛡️ Risk Management</h2>
+
+      <div class="risk-box">
+        <strong>Product Risk:</strong> SOXL is a 3x daily leveraged product with path dependency. This was treated strictly as a short-horizon trade.
+        Primary risk control was <strong>time risk</strong> + <strong>tight invalidation</strong>, not a long hold.
+      </div>
+
+      <h3>Risk Parameters</h3>
+      <ul>
+        <li><strong>Time Stop:</strong> Exit if no follow-through by the next session (do not “wait it out” in a 3x ETF)</li>
+        <li><strong>Invalidation (framework):</strong> If stabilization failed and price broke/held below recent intraday lows, exit rather than average down</li>
+        <li><strong>Position Sizing:</strong> Sized assuming a double-digit adverse move was plausible; kept notional small within portfolio risk budget</li>
+      </ul>
+
+      <h3>Why SOXL (vs single stock)</h3>
+      <ul>
+        <li>Avoided single-name gap/earnings digestion risk</li>
+        <li>Expressed sector-wide beta where the catalyst was expected to lift the complex, not only one ticker</li>
+      </ul>
+    </div>
+
+    <!-- Trade Execution -->
+    <div class="section">
+      <h2>⚡ Execution Notes</h2>
+
+      <h3>Entry Execution</h3>
+      <p>
+        <strong>Entry:</strong> Built position on Fri, Nov 21 at an average cost of <strong>$31.28</strong>.
+        The trade was initiated after the catalyst, once SOXL stabilized and downside momentum appeared to fade.
+      </p>
+
+      <h3>Exit Execution</h3>
+      <p>
+        <strong>Exit:</strong> Sold on Mon, Nov 24 at an average price of <strong>$34.49</strong>, taking profits into strength
+        after the initial relief move played out.
+      </p>
+    </div>
+
+    <!-- Outcome & Review -->
+    <div class="section">
+      <h2>📈 Post-Trade Review</h2>
+
+      <h3>Outcome</h3>
+      <p>
+        <strong>Result:</strong> +10.26% gross over 1 trading day (31.28 → 34.49).
+      </p>
+
+      <div class="highlight">
+        <strong>P&L Snapshot:</strong>
+        <ul style="margin-top: 8px;">
+          <li>Entry: $31.28 (avg)</li>
+          <li>Exit: $34.49 (avg)</li>
+          <li>Gross Return: +10.26%</li>
+          <li>Holding Period: 1 trading day</li>
+          <li>Trade Type: Tactical mean reversion (catalyst-accelerated)</li>
+        </ul>
+      </div>
+
+      <h3>What Worked</h3>
+      <ul>
+        <li>✓ Used a high-quality sector catalyst as a “permission slip” for a relief bounce</li>
+        <li>✓ Kept the trade aligned with SOXL’s product design (short horizon)</li>
+        <li>✓ Exited into strength rather than overstaying a leveraged ETF move</li>
+      </ul>
+
+      <h3>What Could Improve</h3>
+      <ul>
+        <li>⚠ Make the entry trigger more explicit with defined levels/conditions (e.g., reclaim level, VWAP/ATR rules)</li>
+        <li>⚠ Pre-define a profit zone (target band) to reduce discretion even further</li>
+      </ul>
+
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li><strong>Catalyst + Tape:</strong> Best tactical bounces occur when a strong catalyst meets a weak tape with stretched positioning</li>
+        <li><strong>Time Risk First:</strong> In 3x products, time discipline often matters more than fine-tuning the exact top</li>
+        <li><strong>Don’t Overstay:</strong> Take the first clean move; avoid turning a tactical trade into a thesis hold</li>
+      </ul>
+    </div>
+
+    <!-- Risk Considerations -->
+    <div class="section">
+      <h2>⚠️ Risk Considerations Specific to Leveraged ETFs</h2>
+      <ul>
+        <li><strong>Path Dependency:</strong> 3x daily leverage compounds unfavorably in choppy markets</li>
+        <li><strong>Gap Risk:</strong> Overnight gaps can overwhelm intraday signals</li>
+        <li><strong>Volatility Drag:</strong> Sideways volatility erodes returns even if direction is eventually correct</li>
+        <li><strong>Execution:</strong> Favor short holding periods, defined invalidation, and disciplined profit-taking</li>
+      </ul>
+    </div>
+
+    <!-- Related -->
+    <div class="section">
+      <h2>🔗 Related Analysis</h2>
+      <p>
+        <strong>Framework link:</strong> This trade aligns with the “catalyst + positioning + mean reversion” playbook.
+        I treat leveraged ETFs as short-duration instruments and prioritize time stops and profit discipline.
+      </p>
+    </div>
+
+  </div>
+
+  <footer style="max-width: 900px; margin: 0 auto; padding: 24px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px;">
+    <div style="text-align: center;">
+      <strong style="color: var(--text);">Disclaimer:</strong>
+      Educational trading log for demonstration purposes only. Not investment advice.
+      <div style="margin-top: 8px;">
+        <a href="../index.html" style="color: var(--accent);">← Return to Portfolio</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
