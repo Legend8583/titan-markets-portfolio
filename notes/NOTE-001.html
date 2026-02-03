@@ -62,11 +62,41 @@
       padding-left: 24px;
     }
     .highlight {
-      background: rgba(107, 158, 255, 0.1);
+      background: rgba(107, 158, 255, 0.10);
       border-left: 3px solid var(--accent);
       padding: 16px;
       margin: 16px 0;
-      border-radius: 4px;
+      border-radius: 6px;
+    }
+    .mini {
+      font-size: 13px;
+      color: var(--muted);
+      opacity: 0.95;
+    }
+    .checklist {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+    .checklist-title {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    .checklist ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 18px 0;
+      opacity: 0.9;
     }
   </style>
 </head>
@@ -87,33 +117,48 @@
     <a href="../index.html#notes" class="back-link">← Back to Portfolio</a>
 
     <div class="note-header">
-      <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+      <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
         <span class="badge">Market Structure</span>
         <span class="tradeId">TL-NOTE-001</span>
       </div>
       <h1 class="note-title">How Chinese Stocks Gain Momentum on Wall Street: A Trader’s Perspective</h1>
 
       <div class="tags" style="margin-top: 16px;">
-        <span class="tag">china</span>
-        <span class="tag">adrs</span>
-        <span class="tag">narrative</span>
-        <span class="tag">rotation</span>
-        <span class="tag">trading</span>
+        <span class="tag">China ADRs</span>
+        <span class="tag">Narratives</span>
+        <span class="tag">Capital Rotation</span>
+        <span class="tag">Market Structure</span>
+        <span class="tag">Trading Playbook</span>
       </div>
     </div>
 
     <!-- Overview -->
     <div class="section">
       <h2>🧭 Overview</h2>
+
       <p>
-        This note explains how Chinese companies listed in the U.S. can build momentum through a repeated pattern:
-        narrative acceptance, capital access, and staged capital rotation. It is written from a trader’s perspective,
-        grounded in firsthand participation across multiple China ADR cycles.
+        This note outlines a repeatable pattern for how China-related equities can build momentum in U.S. markets:
+        <strong>narrative acceptance</strong> → <strong>capital access</strong> → <strong>staged capital rotation</strong>.
+        It is written from a trader’s perspective, grounded in firsthand participation across multiple China ADR cycles.
       </p>
+
       <div class="highlight">
-        <strong>Key idea:</strong> Momentum tends to emerge when a story becomes <em>investable</em> and broadly accepted.
-        Once the narrative is established, capital often rotates from anchor names into sector leaders and then into
-        smaller “catch-up” names.
+        <p style="margin: 0 0 10px;">
+          <strong>Scope:</strong> This note focuses on <em>market narrative mechanics</em> (how flows move and how participation expands),
+          not a fundamental valuation call on any single company.
+        </p>
+        <p style="margin: 0;">
+          <strong>Personal anchor:</strong> My first China ADR trade was <strong>NIO</strong> in <strong>Nov 2020</strong>,
+          which shaped how I recognize narrative cycles in real time.
+        </p>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">Framework in one sentence</div>
+        <p class="mini" style="margin: 0;">
+          A theme becomes tradable when it is <strong>easy to understand</strong>, <strong>liquid enough to express</strong>,
+          and <strong>early enough that positioning is not yet saturated</strong>.
+        </p>
       </div>
     </div>
 
@@ -122,18 +167,27 @@
       <h2>⚡ Phase I — The Chinese EV Narrative</h2>
 
       <p>
-        My first meaningful exposure to U.S.-listed Chinese equities came through the EV wave. Around 2020, the market
-        began treating China EV as a sector-level growth theme rather than a single-company bet. While NIO listed earlier,
-        XPeng and Li Auto going public in the second half of 2020 helped reinforce the idea that this was an investable
-        category with multiple credible players.
+        The early China ADR momentum I experienced was tied to the EV wave. Around 2020, the market began treating
+        China EV as a sector-level growth theme rather than a single-company bet. Multiple listings and the emergence
+        of credible “category leaders” helped reinforce the idea that this was an investable category that U.S. capital
+        could access and scale.
       </p>
 
       <p>
-        The narrative was simple and easy to spread: EVs were still novel to many retail investors, China was viewed as the
-        world’s most important auto market, and the “growth optionality” felt large. Early participation was further supported
-        by the perception that these companies were real operators investing heavily in product development and technology,
-        even if profitability was not immediate.
+        The story was also easy to spread. EVs were still relatively novel to many retail investors, China was widely viewed
+        as the world’s most important auto market, and the perceived upside felt large. Early participation was further supported
+        by the perception that these companies were real operators investing heavily in product development and technology, even
+        if profitability was not immediate.
       </p>
+
+      <div class="checklist">
+        <div class="checklist-title">Phase I signals</div>
+        <ul>
+          <li>Clustered listings / sector visibility increases (theme becomes “investable”)</li>
+          <li>Retail-friendly narrative (large TAM, simple story, easy comps)</li>
+          <li>Liquidity improves and participation broadens beyond a single ticker</li>
+        </ul>
+      </div>
     </div>
 
     <!-- Phase II -->
@@ -141,16 +195,25 @@
       <h2>🧱 Phase II — Alibaba as the Anchor Asset</h2>
 
       <p>
-        Unlike the EV names, Alibaba functioned less as a new story and more as a core Chinese internet asset — an implicit
-        anchor for China-related positioning in U.S. markets. Its scale, liquidity, and recurring earnings-driven volatility
-        made it a natural reference point for investors expressing a view on Chinese consumer internet exposure.
+        Unlike the EV names, <strong>Alibaba</strong> functioned less as a new story and more as a core Chinese internet asset —
+        an implicit anchor for China-related positioning in U.S. markets. Its scale, liquidity, and recurring earnings-driven
+        volatility made it a natural reference point for investors expressing a view on Chinese consumer internet exposure.
       </p>
 
       <p>
-        From a trading perspective, the importance of an anchor asset is not whether it is always trending up, but whether it
-        remains continuously “in play.” Alibaba’s sustained attention helped stabilize the broader narrative environment and
-        provided a foundation for spillover into smaller, more thematic names.
+        From a trading perspective, the importance of an anchor asset is not whether it is always trending up, but whether it remains
+        continuously “in play.” Regular earnings cycles provide repeated moments for re-pricing and re-positioning, which helps keep the
+        broader narrative environment active even outside peak hype windows.
       </p>
+
+      <div class="checklist">
+        <div class="checklist-title">Phase II signals</div>
+        <ul>
+          <li>Anchor liquidity and institutional “default expression” of the theme</li>
+          <li>Earnings rhythm becomes a recurring volatility catalyst</li>
+          <li>Theme cohesion: other names start reacting to anchor sentiment</li>
+        </ul>
+      </div>
     </div>
 
     <!-- Phase III -->
@@ -158,22 +221,31 @@
       <h2>🌊 Phase III — Narrative Spillover into Sector Leaders</h2>
 
       <p>
-        As interest in China risk returns, capital often looks for the next expression of the theme beyond the most established
-        names. However, rotation is not purely mechanical: capital still needs “fundamental permission” — a credible real-world
-        backdrop — to justify moving into the next layer of stocks.
+        As interest in China risk returns, capital often searches for additional expressions beyond the most established names.
+        However, spillover is rarely automatic. Rotation typically requires <strong>fundamental permission</strong> — a credible real-world
+        backdrop that makes the next layer of stocks defensible, not just tradable.
       </p>
 
       <p>
-        KE Holdings is a good example of this A+B dynamic. Spillover happens because investors are looking for China exposure,
-        but it becomes tradable when there is a supportive backdrop. As property-related regulations were gradually optimized
-        and expectations for transaction stabilization improved, KE could be framed as a sector leader benefiting from valuation
-        repair rather than a company-specific miracle.
+        <strong>KE Holdings (BEKE)</strong> illustrates this A+B dynamic. Investors may look for “the next China vehicle,” but the move tends to
+        be more durable when the policy tone is <em>incrementally more supportive (or less restrictive)</em> and expectations for stabilization
+        improve. In that environment, a sector leader can be framed as a valuation repair candidate rather than a pure narrative momentum play.
       </p>
 
       <p>
-        A similar pattern can show up in other well-known, liquid sector representatives such as Bilibili: once the broader narrative
-        is re-established, familiar names become natural recipients of incremental flows.
+        Similar spillover can show up in other well-known, liquid sector representatives such as <strong>Bilibili (BILI)</strong> once the broader
+        narrative is re-established. At that point, incremental flows often rotate into familiar names with liquidity, visibility, and a story
+        that fits the moment.
       </p>
+
+      <div class="checklist">
+        <div class="checklist-title">Phase III signals</div>
+        <ul>
+          <li>Policy / macro backdrop provides “permission” for re-engagement</li>
+          <li>Leaders receive the first bid; second-tier names react with a lag</li>
+          <li>Move is framed as valuation repair and positioning normalization</li>
+        </ul>
+      </div>
     </div>
 
     <!-- What I learned -->
@@ -186,16 +258,27 @@
         When a clear leader starts moving, I watch for delayed spillover into smaller, lagging names within the same industry.
         That short lag can create a narrow but actionable window for decision-making.
       </p>
+
       <p>
-        For example, when KE Holdings rallied, I also monitored smaller-cap peers such as Fangdd Network Group (DUO) as a potential
+        For example, when BEKE rallied, I also monitored smaller-cap peers such as <strong>Fangdd Network Group (DUO)</strong> as a potential
         catch-up expression of the same real estate theme.
       </p>
+
+      <div class="divider"></div>
+
+      <h3>Risk is different in secondary names</h3>
+      <p>
+        I size secondary / laggard expressions more conservatively and manage them more tactically.
+        They can mean-revert violently if the narrative stalls, so I tend to take profits faster and keep invalidation rules tighter.
+      </p>
+
+      <div class="divider"></div>
 
       <h3>Participation discipline matters more than activity</h3>
       <p>
         I avoid trades when the story feels detached from any reasonable support, or when I cannot clearly explain why incremental
-        capital should keep flowing into the theme. A practical risk signal is sentiment saturation: when a topic becomes widely
-        discussed by participants with limited market context, positioning is often already crowded.
+        capital should keep flowing into the theme. A practical risk signal is sentiment saturation: when a topic becomes widely discussed
+        by participants with limited market context, positioning is often already crowded.
       </p>
 
       <p>
@@ -214,12 +297,27 @@
       </p>
     </div>
 
-    <!-- Related Research -->
+    <!-- References / Further Reading -->
+    <div class="section">
+      <h2>📚 References / Further Reading (Optional)</h2>
+      <p class="mini">
+        This note intentionally avoids heavy data tables. If you want to validate or expand the framework, these are the most useful items to
+        cross-check (high-level, not exhaustive):
+      </p>
+      <ul>
+        <li>IPO / listing timeline milestones for major China ADRs (EV wave and platform names)</li>
+        <li>China ADR regulatory headline timeline (risk premium changes and sentiment regime shifts)</li>
+        <li>Property policy tone timeline (supportive vs restrictive framing) and transaction activity indicators</li>
+        <li>ETF / index exposure changes that can amplify theme flows (where relevant)</li>
+      </ul>
+    </div>
+
+    <!-- Related -->
     <div class="section">
       <h2>🔗 Related</h2>
       <p>
-        <strong>Next:</strong> TL-NOTE-002 will expand this framework into a repeatable checklist for identifying “narrative cycle stages” and
-        mapping them to trade execution (entries, invalidation, and exit discipline).
+        <strong>Next:</strong> TL-NOTE-002 will turn this into a repeatable checklist for identifying narrative cycle stages and mapping them to
+        execution: entries, invalidation, position sizing, and exit discipline.
       </p>
     </div>
 
