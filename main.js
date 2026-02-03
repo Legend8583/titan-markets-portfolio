@@ -13,7 +13,7 @@ const LINKS = {
 // Add new entries by copying an object
 const LOGS = [
   {
-    id: "TL-LOG-012",
+    id: "TL-LOG-001",
     title: "Earnings Setup — NVDA Call Spread",
     badge: "Earnings",
     summary: "Pre-earnings vertical call spread positioned for moderate upside. Entry triggered on consolidation break with defined risk at 2% portfolio. Exit targets set at 25% and 50% IV crush levels.",
@@ -21,29 +21,29 @@ const LOGS = [
     returnPct: "+140%",
     catalyst: "Earnings Beat",
     holdTime: "72h",
-    link: "./logs/TL-LOG-012.html"
+    link: "./logs/TL-LOG-001.html"
   },
   {
-    id: "TL-LOG-011",
-    title: "Momentum Breakout — Small Cap Biotech",
-    badge: "Technicals",
-    summary: "FDA catalyst-driven momentum play with clean volume confirmation. Entry at resistance break, stop below consolidation range. Risk/reward 1:3 with trailing stop methodology.",
-    tags: ["technicals", "momentum", "biotech", "catalyst"],
-    returnPct: "+85%",
-    catalyst: "FDA Approval",
-    holdTime: "5d",
-    link: "./logs/TL-LOG-011.html"
+    id: "TL-LOG-002",
+    title: "SOXL Tactical Long — Post-Earnings Relief Bounce",
+    badge: "Macro + Catalyst",
+    summary: "Tactical long in 3x leveraged semiconductor ETF to capture short-dated relief bounce after NVDA earnings. Entry at $31.28 on positioning reset, exited at $34.49 into strength after relief move played out.",
+    tags: ["soxl", "semiconductors", "catalyst", "mean-reversion", "tactical"],
+    returnPct: "+10.26%",
+    catalyst: "NVDA Earnings",
+    holdTime: "1d",
+    link: "./logs/TL-LOG-002.html"
   },
   {
-    id: "TL-LOG-010",
-    title: "Event-Driven — M&A Arbitrage Spread",
-    badge: "Event",
-    summary: "Cash/stock merger arbitrage with regulatory approval catalyst. Spread trading at 4.2% discount with 45-day timeline. Defined downside protection at deal break scenarios.",
-    tags: ["event", "merger-arb", "catalyst", "risk"],
-    returnPct: "+18%",
-    catalyst: "Deal Closure",
-    holdTime: "45d",
-    link: "#"
+    id: "TL-LOG-003",
+    title: "POP MART (9992.HK) Tactical Long — Oversold Bounce",
+    badge: "Mean Reversion",
+    summary: "Oversold bounce trade on POP MART following 40% drawdown from peak. Entry at HKD 176-189 on excessive pessimism despite intact IP engine and international expansion. Buyback provided ex-post validation and tailwind for sentiment repair.",
+    tags: ["9992.hk", "consumer", "oversold", "buyback", "tactical-long"],
+    returnPct: "+27.5%",
+    catalyst: "Sentiment Repair",
+    holdTime: "~10d",
+    link: "./logs/TL-LOG-003.html"
   }
 ];
 
