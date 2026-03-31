@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TL-LOG-003: POP MART (9992.HK) Tactical Long — Titan Li</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .log-detail { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+    .log-header { margin-bottom: 40px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-bottom: 24px; color: var(--muted); font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover { color: var(--accent); transform: translateX(-4px); }
+    .log-title { font-size: 36px; font-weight: 700; margin: 0 0 16px; line-height: 1.2; }
+
+    .log-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .meta-item {
+      background: var(--card-glass);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .meta-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .section {
+      background: var(--card-glass);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 24px 0;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin: 0 0 20px;
+      color: var(--text);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+    .section h3 { font-size: 16px; margin: 24px 0 12px; color: var(--accent); }
+    .section p, .section li { color: var(--muted); line-height: 1.7; margin: 12px 0; }
+    .section ul { margin: 12px 0; padding-left: 24px; }
+
+    .code-block {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--accent2);
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    .highlight {
+      background: rgba(107, 158, 255, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+    }
+    .risk-box {
+      background: rgba(255, 107, 157, 0.1);
+      border-left: 3px solid #ff6b9d;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+    }
+
+    /* Optional: embed your chart later */
+    .chart {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 16px 0;
+      background: rgba(255,255,255,0.02);
+    }
+    .chart img { width: 100%; height: auto; display: block; }
+    .caption { font-size: 12px; color: var(--muted); margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <img class="avatar" src="../avatar.png" alt="Titan Li" onerror="this.style.display='none'">
+        <div class="title">
+          <h1>Titan Li</h1>
+          <div class="sub">Trading Log Detail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="log-detail">
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+
+    <div class="log-header">
+      <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+        <span class="badge">Overreaction + Buyback Tailwind</span>
+        <span class="tradeId">TL-LOG-003</span>
+      </div>
+
+      <h1 class="log-title">POP MART (9992.HK) Tactical Long — Oversold Bounce + Narrative Repair</h1>
+
+      <div class="log-meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Return</div>
+          <div class="meta-value positive">~25–30%</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Hold Time</div>
+          <div class="meta-value">~10 td</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Strategy</div>
+          <div class="meta-value">Mean Reversion</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Position</div>
+          <div class="meta-value">800 sh</div>
+        </div>
+      </div>
+
+      <div class="tags" style="margin-top: 16px;">
+        <span class="tag">9992.hk</span>
+        <span class="tag">consumer</span>
+        <span class="tag">oversold</span>
+        <span class="tag">buyback</span>
+        <span class="tag">tactical-long</span>
+      </div>
+    </div>
+
+    <!-- Trade Summary -->
+    <div class="section">
+      <h2>🧾 Trade Summary</h2>
+
+      <div class="code-block">Instrument: POP MART International Group Ltd (HKG: 9992)
+Direction: Long
+
+Entry window: Jan 15–16, 2026 (staggered)
+Avg entry: ~HKD 176–189
+
+Exit:
+- ~90% on Jan 28, 2026 at ~HKD 233
+- Remaining position exited by Jan 29, 2026
+
+Position size: 800 shares
+Holding period: ~2 calendar weeks (~10 trading days)
+Outcome: ~25–30% (weighted / approximate)</div>
+
+      <!-- Optional: embed your chart later
+      <div class="chart">
+        <img src="../images/TL-LOG-003-popmart.png" alt="POP MART chart">
+      </div>
+      <div class="caption">Chart: POP MART (9992.HK), entry zone vs rebound and scale-out.</div>
+      -->
+    </div>
+
+    <!-- Thesis -->
+    <div class="section">
+      <h2>📊 Trade Thesis</h2>
+      <p>
+        This trade was built around a mean-reversion setup created by overselling, paired with evidence that POP MART’s
+        IP engine and international expansion remained intact despite a post-hype drawdown.
+      </p>
+      <div class="highlight">
+        <strong>Core thesis:</strong> The market was over-discounting a single-IP “hype fade” narrative.
+        A sharp sell-off into a structural support zone created asymmetric risk–reward for a tactical long, with upside driven by
+        sentiment repair and re-pricing of excessive pessimism.
+      </div>
+    </div>
+
+    <!-- Setup & Drivers -->
+    <div class="section">
+      <h2>🎯 Setup & Key Drivers</h2>
+
+      <h3>1) Oversold technical + sentiment reset</h3>
+      <ul>
+        <li>Price retraced materially from the prior peak (HKD ~339.8) into the HKD ~180 area</li>
+        <li>Narrative shifted quickly from “growth darling” to “post-hype collapse,” creating pessimism overshoot risk</li>
+        <li>At the entry zone, I saw more favorable asymmetry: limited downside (relative to recent range) vs meaningful rebound potential</li>
+      </ul>
+
+      <h3>2) Repeatable IP creation, not single-franchise dependence</h3>
+      <ul>
+        <li><strong>Twinkle Twinkle</strong> traction signaled the company could still launch resonant characters beyond the prior flagship cycle</li>
+        <li>Even without peak intensity, it supported the existence of a repeatable “IP incubation” model</li>
+      </ul>
+
+      <h3>3) International expansion as structural support</h3>
+      <ul>
+        <li>Store footprint and recognition were expanding outside China, especially across North America and Europe</li>
+        <li>This expansion increases total addressable market and reduces reliance on a single geography or trend cycle</li>
+      </ul>
+
+      <h3>4) Product / manufacturing improvements (channel checks)</h3>
+      <ul>
+        <li>Consumer-level checks suggested improved finishing, materials, and overall product quality vs earlier generations</li>
+        <li>Higher perceived quality supports repeat purchases and reduces “fad decay” risk over time</li>
+      </ul>
+    </div>
+
+    <!-- Buyback -->
+    <div class="section">
+      <h2>💡 Buyback: Ex-Post Validation and Tailwind</h2>
+
+      <p>
+        The repurchase activity occurred after I established the position, so it was not part of the original entry trigger.
+        However, it served as a constructive tailwind and an ex-post validation of the “oversold + valuation support” view.
+      </p>
+
+      <h3>Context Behind the Buyback (January 2026)</h3>
+      <p>
+        POP MART’s large-scale share repurchase in January 2026 took place against a backdrop of strong operating performance
+        but significant equity price correction. After peaking around HKD ~340 in August 2025, the stock retraced roughly 40%
+        over the following five months. Sentiment deteriorated rapidly, driven more by narrative concerns than by a clear collapse in fundamentals:
+      </p>
+
+      <ul>
+        <li>Perceived peak popularity of flagship IPs such as Labubu</li>
+        <li>Softer-than-expected U.S. performance during the 2025 Black Friday period</li>
+        <li>Compression in secondary-market resale premiums for collectibles</li>
+      </ul>
+
+      <p>
+        On January 19, 2026, the company deployed approximately HKD 251 million to repurchase shares. In my view, this mattered for three reasons:
+      </p>
+
+      <ul>
+        <li><strong>Confidence signaling:</strong> Management committed real capital, indicating internal views of intrinsic value diverged from market pricing</li>
+        <li><strong>Sentiment repair:</strong> The action directly countered panic-driven narratives and improved investor confidence</li>
+        <li><strong>Supply–demand support:</strong> Repurchases reduced marginal selling pressure during a fragile sentiment regime</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>How I interpret it:</strong> I did not buy because of the buyback, but it aligned management behavior with my assessment
+        that the post-selloff pricing reflected excessive pessimism. A buyback is supportive, not a guaranteed floor.
+      </div>
+    </div>
+
+    <!-- Execution & Risk -->
+    <div class="section">
+      <h2>⚡ Execution & Risk Management</h2>
+
+      <h3>Entry</h3>
+      <p>
+        I built the position over two sessions (Jan 15–16) to reduce timing risk and avoid forcing a single print in a volatile tape.
+        The average entry range was ~HKD 176–189.
+      </p>
+
+      <h3>Risk controls</h3>
+      <ul>
+        <li><strong>Sizing discipline:</strong> Total exposure capped at 800 shares to keep downside manageable if sentiment deteriorated further</li>
+        <li><strong>Time discipline:</strong> Treated as a tactical trade; the thesis depended on a rebound window, not a long re-rating hold</li>
+        <li><strong>Invalidation (framework):</strong> If price broke and held below the support zone and the narrative continued to worsen, the mean-reversion thesis would be invalidated</li>
+      </ul>
+
+      <div class="risk-box">
+        <strong>Primary risk:</strong> Consumer “hype” names can stay depressed longer than expected if the market re-prices the business
+        into a lower multiple regime. This is why sizing and exit discipline mattered more than being perfectly right about the bottom.
+      </div>
+    </div>
+
+    <!-- Exit -->
+    <div class="section">
+      <h2>📤 Exit Rationale</h2>
+      <p>
+        The rebound moved quickly from “mean reversion” into “crowded optimism.” Once price approached the HKD 230+ area,
+        I judged the initial re-pricing of pessimism had largely played out and additional upside increasingly depended on incremental catalysts,
+        not just bounce dynamics.
+      </p>
+      <ul>
+        <li>Scaled out ~90% on Jan 28 around ~HKD 233</li>
+        <li>Fully exited by Jan 29 to lock gains and reduce post-bounce volatility exposure</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Execution principle:</strong> Scale out into strength on tactical trades; avoid turning a bounce capture into a thesis hold.
+      </div>
+    </div>
+
+    <!-- Post-Trade -->
+    <div class="section">
+      <h2>🧠 Post-Trade Reflection</h2>
+
+      <h3>What worked</h3>
+      <ul>
+        <li>Combining oversold conditions with a defensible fundamental narrative (repeatable IP + global expansion)</li>
+        <li>Using staggered entry and disciplined scale-out to manage volatility</li>
+        <li>Treating the buyback as confirmation/tailwind rather than the original reason for the trade</li>
+      </ul>
+
+      <h3>What I would improve</h3>
+      <ul>
+        <li>Define a clearer invalidation level and a pre-set target zone to reduce discretion further</li>
+        <li>Separate “brand durability” (long-term) from “bounce capture” (tactical) more explicitly in sizing and timeline</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Key takeaway:</strong> Even in consumer-driven “hype” equities, durable IP capability and expanding global distribution
+        can justify sharp reversals once panic selling exhausts—especially when management actions (like buybacks) reinforce confidence in value.
+      </div>
+    </div>
+
+  </div>
+
+  <footer style="max-width: 900px; margin: 0 auto; padding: 24px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px;">
+    <div style="text-align: center;">
+      <strong style="color: var(--text);">Disclaimer:</strong>
+      Educational trading log for demonstration purposes only. Not investment advice.
+      <div style="margin-top: 8px;">
+        <a href="../index.html" style="color: var(--accent);">← Return to Portfolio</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
