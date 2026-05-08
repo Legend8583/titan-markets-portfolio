@@ -3,373 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Titan Li — Markets Portfolio. Systematic approach to US equities and options with quantitative engineering and discretionary execution.">
+  <meta name="description" content="Titan Li personal markets portfolio. Trading case studies, investment research, quant analytics, and market notes across equities, options, crypto, and alternative assets.">
   <meta name="author" content="Titan Li">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Titan Li — Markets Portfolio">
-  <meta property="og:description" content="Markets portfolio: trading logs, research, quant projects">
-  <title>Titan Li — Markets Portfolio</title>
+  <meta property="og:title" content="Titan Li | Markets, Research, and Analytics">
+  <meta property="og:description" content="A professional portfolio covering trading case studies, market research, and quantitative analytics.">
+  <title>Titan Li | Markets, Research, and Analytics</title>
   <link rel="icon" type="image/png" href="./avatar.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-  <!-- Layout Shell -->
-  <div class="shell">
-
-    <!-- Sidebar Nav (desktop) -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-top">
-        <div class="sid-brand">
-          <img class="sid-avatar" src="./avatar.png" alt="TL" onerror="this.style.display='none'">
-          <div>
-            <div class="sid-name">TITAN LI</div>
-            <div class="sid-role">MARKETS PORTFOLIO</div>
-          </div>
+  <div class="site-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Site navigation">
+      <div class="sidebar-profile">
+        <img class="avatar" src="./avatar.png" alt="Titan Li" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-name">Titan Li</div>
+          <div class="brand-role">Markets · Research · Analytics</div>
         </div>
       </div>
 
-      <nav class="sid-nav" id="mainNav">
-        <a href="#hero" class="sid-link active" data-section="hero">
-          <span class="sid-key">1</span> OVERVIEW
-        </a>
-        <a href="#logs" class="sid-link" data-section="logs">
-          <span class="sid-key">2</span> TRADING LOGS
-        </a>
-        <a href="#notes" class="sid-link" data-section="notes">
-          <span class="sid-key">3</span> RESEARCH
-        </a>
-        <a href="#projects" class="sid-link" data-section="projects">
-          <span class="sid-key">4</span> PROJECTS
-        </a>
-        <a href="#about" class="sid-link" data-section="about">
-          <span class="sid-key">5</span> ABOUT
-        </a>
-        <a href="#contact" class="sid-link" data-section="contact">
-          <span class="sid-key">6</span> CONTACT
-        </a>
+      <nav class="nav" id="mainNav">
+        <a href="#hero" class="nav-link active" data-section="hero"><span>01</span>Overview</a>
+        <a href="#logs" class="nav-link" data-section="logs"><span>02</span>Trading Cases</a>
+        <a href="#notes" class="nav-link" data-section="notes"><span>03</span>Research Notes</a>
+        <a href="#projects" class="nav-link" data-section="projects"><span>04</span>Quant Projects</a>
+        <a href="#about" class="nav-link" data-section="about"><span>05</span>Background</a>
+        <a href="#contact" class="nav-link" data-section="contact"><span>06</span>Contact</a>
       </nav>
 
-      <div class="sid-bottom">
-        <a href="./TitanLi_Resume.pdf" class="sid-action">↗ RESUME (PDF)</a>
-        <a href="https://github.com/Legend8583" target="_blank" rel="noopener noreferrer" class="sid-action">↗ GITHUB</a>
-        <a href="https://www.linkedin.com/in/titannli/" target="_blank" rel="noopener noreferrer" class="sid-action">↗ LINKEDIN</a>
-        <div class="sid-meta">
-          <div>tli.msc2026@ivey.ca</div>
-          <div>+1 (647) 649-5888</div>
-        </div>
+      <div class="sidebar-footer">
+        <a href="./TitanLi_Resume.pdf" class="side-cta">Resume PDF</a>
+        <a href="https://github.com/Legend8583" target="_blank" rel="noopener noreferrer" class="side-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/titannli/" target="_blank" rel="noopener noreferrer" class="side-link">LinkedIn</a>
+        <div class="side-meta">Toronto, Canada<br>tli.msc2026@ivey.ca</div>
       </div>
     </aside>
 
-    <!-- Mobile Header -->
-    <header class="mobile-header" id="mobileHeader">
-      <div class="mh-inner">
-        <div class="mh-brand">
-          <img class="mh-avatar" src="./avatar.png" alt="TL" onerror="this.style.display='none'">
-          <span class="mh-name">TITAN LI</span>
-        </div>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
+    <header class="mobile-header">
+      <div class="mobile-brand">
+        <img class="mobile-avatar" src="./avatar.png" alt="Titan Li" onerror="this.style.display='none'">
+        <span>Titan Li</span>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </header>
 
-    <!-- Main Content -->
-    <main class="content" id="mainContent">
-
-      <!-- Hero / Overview Panel -->
-      <section id="hero" class="panel">
-        <div class="panel-header">
-          <div class="panel-label">OVERVIEW</div>
-          <div class="panel-timestamp" id="clockDisplay"></div>
+    <main class="main-content">
+      <section id="hero" class="hero section-block">
+        <div class="eyebrow-row">
+          <span class="eyebrow">Personal Markets Portfolio</span>
+          <span class="live-time" id="clockDisplay"></span>
         </div>
 
         <div class="hero-grid">
-          <div class="hero-main">
-            <h1 class="hero-title">
-              <span class="hero-line">Quantitative Engineering</span>
-              <span class="hero-line accent">× Discretionary Trading</span>
-            </h1>
-            <p class="hero-sub">
-              Bridging quantitative analysis with market intuition across equities, options, and alternative assets.
-              Systematic execution, risk modeling, and Python/SQL infrastructure applied to catalyst-driven 
-              trade selection and portfolio construction.
+          <div class="hero-copy">
+            <h1>Investment thinking, trading discipline, and data-driven execution.</h1>
+            <p class="hero-lead">
+              I document market views, trade decisions, and quantitative tools across equities, options, crypto, and alternative assets. This site is built as a professional record of how I think about risk, catalysts, valuation, and decision-making under uncertainty.
             </p>
-            <div class="hero-chips">
-              <span class="chip">EQUITIES</span>
-              <span class="chip">OPTIONS</span>
-              <span class="chip">RISK MGMT</span>
-              <span class="chip">CATALYST-DRIVEN</span>
-              <span class="chip">QUANT</span>
+            <div class="hero-actions">
+              <a class="btn primary" href="#logs">View case studies</a>
+              <a class="btn secondary" href="./TitanLi_Resume.pdf">Download resume</a>
+              <a class="btn ghost" href="https://www.linkedin.com/in/titannli/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
 
-          <div class="hero-stats">
-            <div class="stat-block">
-              <div class="stat-num">3</div>
-              <div class="stat-lab">TRADE LOGS</div>
-            </div>
-            <div class="stat-block">
-              <div class="stat-num">3</div>
-              <div class="stat-lab">RESEARCH NOTES</div>
-            </div>
-            <div class="stat-block">
-              <div class="stat-num">3</div>
-              <div class="stat-lab">QUANT PROJECTS</div>
-            </div>
-            <div class="stat-block">
-              <div class="stat-num">5</div>
-              <div class="stat-lab">ASSET CLASSES</div>
+          <div class="hero-card" aria-label="Portfolio summary">
+            <div class="hero-card-title">Current Focus</div>
+            <div class="focus-list">
+              <div><span>01</span><strong>Public Markets</strong><p>Equities, options, semiconductors, China ADRs, and tactical risk-taking.</p></div>
+              <div><span>02</span><strong>Research Process</strong><p>Catalyst mapping, market structure, positioning, and post-trade review.</p></div>
+              <div><span>03</span><strong>Analytics Infrastructure</strong><p>Python, SQL, risk metrics, volatility models, and portfolio analysis.</p></div>
             </div>
           </div>
         </div>
 
-        <!-- Process Pipeline -->
-        <div class="pipeline">
-          <div class="pipe-label">TRADE PROCESS</div>
-          <div class="pipe-flow">
-            <span class="pipe-step">01 SETUP</span>
-            <span class="pipe-arrow">→</span>
-            <span class="pipe-step">02 TRIGGER</span>
-            <span class="pipe-arrow">→</span>
-            <span class="pipe-step">03 RISK</span>
-            <span class="pipe-arrow">→</span>
-            <span class="pipe-step">04 EXIT</span>
-            <span class="pipe-arrow">→</span>
-            <span class="pipe-step">05 REVIEW</span>
-          </div>
+        <div class="metric-strip">
+          <div><strong>3</strong><span>Trading Cases</span></div>
+          <div><strong>3</strong><span>Research Notes</span></div>
+          <div><strong>3</strong><span>Quant Projects</span></div>
+          <div><strong>5</strong><span>Asset Classes</span></div>
         </div>
 
-        <!-- Tools bar -->
-        <div class="tools-bar">
-          <div class="pipe-label">STACK</div>
-          <div class="tools-row">
-            <span class="tool">Bloomberg</span>
-            <span class="tool">Python</span>
-            <span class="tool">SQL</span>
-            <span class="tool">Excel</span>
-            <span class="tool">R</span>
-            <span class="tool">Pandas</span>
-            <span class="tool">NumPy</span>
-            <span class="tool">CVXPY</span>
+        <div class="process-card">
+          <div class="section-kicker">Process</div>
+          <div class="process-flow">
+            <span>Thesis</span>
+            <i></i>
+            <span>Catalyst</span>
+            <i></i>
+            <span>Risk</span>
+            <i></i>
+            <span>Execution</span>
+            <i></i>
+            <span>Review</span>
           </div>
         </div>
       </section>
 
-      <!-- Trading Logs -->
-      <section id="logs" class="panel">
-        <div class="panel-header">
-          <div class="panel-label">TRADING LOGS</div>
-          <div class="panel-hint">Documented setups · Timestamps omitted</div>
+      <section id="logs" class="section-block">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Trading Cases</span>
+            <h2>Selected trade reviews</h2>
+          </div>
+          <p>Case notes focused on thesis, catalyst, risk, execution, and post-trade learning.</p>
         </div>
 
         <div class="log-controls">
-          <input class="t-input" id="q" type="search" placeholder="/ Search ticker, catalyst, tag..." aria-label="Search">
-          <select class="t-select" id="filter" aria-label="Filter">
-            <option value="all">ALL TAGS</option>
+          <input class="input" id="q" type="search" placeholder="Search ticker, thesis, catalyst, tag" aria-label="Search trading cases">
+          <select class="select" id="filter" aria-label="Filter by tag">
+            <option value="all">All tags</option>
           </select>
         </div>
 
-        <!-- Table-style log display -->
-        <div class="log-table-wrap">
-          <table class="log-table" id="logTable">
+        <div class="case-table-wrap">
+          <table class="case-table" id="logTable">
             <thead>
               <tr>
-                <th class="col-id">ID</th>
-                <th class="col-title">TRADE</th>
-                <th class="col-cat">CATALYST</th>
-                <th class="col-ret">RETURN</th>
-                <th class="col-hold">HOLD</th>
-                <th class="col-type">TYPE</th>
+                <th>Case</th>
+                <th>Thesis</th>
+                <th>Catalyst</th>
+                <th>Return</th>
+                <th>Hold</th>
+                <th>Type</th>
               </tr>
             </thead>
             <tbody id="logBody"></tbody>
           </table>
         </div>
-
-        <!-- Card fallback for mobile -->
-        <div class="log-cards-mobile" id="logCardsMobile"></div>
+        <div class="mobile-cases" id="logCardsMobile"></div>
       </section>
 
-      <!-- Research Notes -->
-      <section id="notes" class="panel">
-        <div class="panel-header">
-          <div class="panel-label">RESEARCH & MARKET NOTES</div>
-          <div class="panel-hint">Thematic research, commentary, tactical insights</div>
+      <section id="notes" class="section-block">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Research Notes</span>
+            <h2>Market research and thematic views</h2>
+          </div>
+          <p>Short-form research pieces connecting narratives, liquidity, market structure, and investable themes.</p>
         </div>
 
-        <div class="notes-grid">
-          <a href="./notes/TL-NOTE-001.html" class="note-row">
-            <div class="note-id">TL-NOTE-001</div>
-            <div class="note-body">
-              <div class="note-badge">MARKET STRUCTURE</div>
-              <div class="note-title">How Chinese Stocks Gain Momentum on Wall Street</div>
-              <div class="note-desc">Repeatable patterns in China ADR cycles: narrative acceptance → capital access → staged rotation.</div>
-              <div class="note-tags">
-                <span>China ADRs</span><span>narratives</span><span>capital-rotation</span>
-              </div>
+        <div class="note-list">
+          <a href="./notes/TL-NOTE-001.html" class="note-card">
+            <span class="note-code">TL-NOTE-001</span>
+            <div>
+              <div class="tagline">Market Structure</div>
+              <h3>How Chinese Stocks Gain Momentum on Wall Street</h3>
+              <p>Repeatable patterns in China ADR cycles, from narrative acceptance to staged capital rotation.</p>
+              <div class="tag-row"><span>China ADRs</span><span>Narratives</span><span>Capital Rotation</span></div>
             </div>
-            <div class="note-arrow">→</div>
+            <span class="arrow">View</span>
           </a>
 
-          <a href="./notes/TL-NOTE-002.html" class="note-row">
-            <div class="note-id">TL-NOTE-002</div>
-            <div class="note-body">
-              <div class="note-badge">CRYPTO</div>
-              <div class="note-title">Trump Coin & Memecoin Markets — A Trader's Framework</div>
-              <div class="note-desc">Memecoins as attention + liquidity instruments. Case study: Trump coin launch (Jan 2025).</div>
-              <div class="note-tags">
-                <span>crypto</span><span>memecoin</span><span>execution</span>
-              </div>
+          <a href="./notes/TL-NOTE-002.html" class="note-card">
+            <span class="note-code">TL-NOTE-002</span>
+            <div>
+              <div class="tagline">Crypto</div>
+              <h3>Trump Coin and Memecoin Markets</h3>
+              <p>A trader's framework for understanding attention, liquidity, narrative velocity, and execution risk.</p>
+              <div class="tag-row"><span>Crypto</span><span>Memecoin</span><span>Execution</span></div>
             </div>
-            <div class="note-arrow">→</div>
+            <span class="arrow">View</span>
           </a>
 
-          <a href="./notes/TL-NOTE-003.html" class="note-row">
-            <div class="note-id">TL-NOTE-003</div>
-            <div class="note-body">
-              <div class="note-badge">ALTERNATIVE ASSETS</div>
-              <div class="note-title">Pokémon Cards as an Alternative Asset</div>
-              <div class="note-desc">Demand, scarcity, and condition as value drivers. Case study on Pokémon cards (2016–present).</div>
-              <div class="note-tags">
-                <span>collectibles</span><span>pokemon</span><span>alternative-assets</span>
-              </div>
+          <a href="./notes/TL-NOTE-003.html" class="note-card">
+            <span class="note-code">TL-NOTE-003</span>
+            <div>
+              <div class="tagline">Alternative Assets</div>
+              <h3>Pokémon Cards as an Alternative Asset</h3>
+              <p>Demand, scarcity, grading, and condition as value drivers in collectible markets.</p>
+              <div class="tag-row"><span>Collectibles</span><span>Scarcity</span><span>Alternatives</span></div>
             </div>
-            <div class="note-arrow">→</div>
+            <span class="arrow">View</span>
           </a>
         </div>
       </section>
 
-      <!-- Projects -->
-      <section id="projects" class="panel">
-        <div class="panel-header">
-          <div class="panel-label">QUANT INFRASTRUCTURE & TOOLS</div>
-          <div class="panel-hint">Analytics supporting systematic workflow</div>
+      <section id="projects" class="section-block">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Quant Projects</span>
+            <h2>Analytics and infrastructure</h2>
+          </div>
+          <p>Projects that support systematic research, risk review, and market decision-making.</p>
         </div>
 
-        <div class="proj-grid">
-          <a href="./projects/TL-PRJ-001.html" class="proj-card">
-            <div class="proj-top">
-              <span class="proj-id">TL-PRJ-001</span>
-              <div class="proj-stack"><span>Python</span><span>NumPy</span><span>Pandas</span><span>Scipy</span></div>
-            </div>
-            <h3 class="proj-title">Volatility & Risk Analytics Toolkit</h3>
-            <ul class="proj-list">
-              <li>ARCH/GARCH volatility forecasting w/ out-of-sample backtesting</li>
-              <li>Real-time correlation matrix → regime shift detection</li>
-              <li>VaR, CVaR, stress testing dashboards</li>
-              <li>Greeks tracking & delta-hedging optimization</li>
-            </ul>
+        <div class="project-grid">
+          <a href="./projects/TL-PRJ-001.html" class="project-card">
+            <div class="project-top"><span>TL-PRJ-001</span><div><b>Python</b><b>Pandas</b><b>Risk</b></div></div>
+            <h3>Volatility and Risk Analytics Toolkit</h3>
+            <p>ARCH/GARCH volatility forecasting, VaR and CVaR review, stress testing, and portfolio-level risk monitoring.</p>
           </a>
 
-          <div class="proj-card">
-            <div class="proj-top">
-              <span class="proj-id">TL-PRJ-002</span>
-              <div class="proj-stack"><span>Python</span><span>SQL</span><span>Pandas</span><span>API</span></div>
-            </div>
-            <h3 class="proj-title">Event Study & Earnings Framework</h3>
-            <ul class="proj-list">
-              <li>Automated earnings calendar w/ catalyst prioritization</li>
-              <li>Historical earnings reaction DB (gaps, IV crush, drift)</li>
-              <li>Pre/post-earnings statistical analysis</li>
-              <li>Systematic post-trade review template</li>
-            </ul>
+          <div class="project-card">
+            <div class="project-top"><span>TL-PRJ-002</span><div><b>SQL</b><b>API</b><b>Events</b></div></div>
+            <h3>Event Study and Earnings Framework</h3>
+            <p>Earnings calendar automation, historical reaction database, pre and post earnings analysis, and catalyst ranking.</p>
           </div>
 
-          <div class="proj-card">
-            <div class="proj-top">
-              <span class="proj-id">TL-PRJ-003</span>
-              <div class="proj-stack"><span>Python</span><span>CVXPY</span><span>NumPy</span><span>Sklearn</span></div>
-            </div>
-            <h3 class="proj-title">Portfolio Construction & Optimization</h3>
-            <ul class="proj-list">
-              <li>Mean-variance optimization w/ robust covariance</li>
-              <li>Factor exposure analysis (Fama-French, momentum)</li>
-              <li>Constraint-based portfolio construction</li>
-              <li>Transaction cost modeling & rebalancing algos</li>
-            </ul>
+          <div class="project-card">
+            <div class="project-top"><span>TL-PRJ-003</span><div><b>CVXPY</b><b>Factors</b><b>Optimization</b></div></div>
+            <h3>Portfolio Construction and Optimization</h3>
+            <p>Mean variance optimization, factor exposure analysis, constraints, transaction costs, and rebalancing logic.</p>
           </div>
         </div>
       </section>
 
-      <!-- About -->
-      <section id="about" class="panel">
-        <div class="panel-header">
-          <div class="panel-label">ABOUT</div>
+      <section id="about" class="section-block">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Background</span>
+            <h2>Finance, analytics, and independent markets work</h2>
+          </div>
+          <p>A concise profile for finance, investment, and analytics opportunities.</p>
         </div>
 
-        <div class="about-grid">
-          <div class="about-block">
-            <div class="about-key">EDUCATION</div>
-            <div class="about-val">
-              <strong>MSc Business Analytics</strong> — Ivey Business School, Western University (2025–2027 Expected)<br>
-              <strong>BSc Computer Science</strong> — Western University — GPA 3.7/4.0 (3.9 Senior Year)<br>
-              Ivey MSc Excellence Award ($10,000) · Western Scholarship of Distinction · Dean's Honor List
-            </div>
+        <div class="profile-grid">
+          <div class="profile-card wide">
+            <h3>Profile</h3>
+            <p>
+              I am an MSc Business Analytics candidate at Ivey with a computer science background and experience across equity research, venture capital, CVC investing, and personal trading. My work combines market intuition with structured data analysis, risk discipline, and clear post-decision review.
+            </p>
           </div>
-          <div class="about-block">
-            <div class="about-key">EXPERIENCE</div>
-            <div class="about-val">
-              <strong>Glaucus Capital</strong> — Personal Trading Portfolio (2021–Present)<br>
-              <strong>Pacific Securities</strong> — Equity Research, Automotive (Summer 2023)<br>
-              <strong>Expara Ventures</strong> — Investment Analyst (Spring 2024)<br>
-              <strong>MiraclePlus (fmr. YC China)</strong> — Lead Investment Analyst, Web3 (Spring 2023)<br>
-              <strong>JD Group</strong> — CVC Investment Intern, Fintech (Summer 2022)
-            </div>
+          <div class="profile-card">
+            <h3>Education</h3>
+            <p><strong>Ivey Business School</strong><br>MSc Business Analytics, 2025 to 2027 expected</p>
+            <p><strong>Western University</strong><br>BSc Computer Science, GPA 3.7/4.0, 3.9 senior year</p>
           </div>
-          <div class="about-block">
-            <div class="about-key">FOCUS</div>
-            <div class="about-val">
-              Markets, investing, and the systems behind them. This portfolio covers trading execution, 
-              market structure research, portfolio construction, and perspectives on asset classes from 
-              equities to alternatives — a demonstration of analytical rigor, risk discipline, and independent thinking.
-            </div>
+          <div class="profile-card">
+            <h3>Experience</h3>
+            <p>Glaucus Capital, personal trading portfolio</p>
+            <p>Pacific Securities, equity research</p>
+            <p>Expara Ventures, investment analyst</p>
+            <p>MiraclePlus and JD Group, investment internships</p>
           </div>
         </div>
       </section>
 
-      <!-- Contact -->
-      <section id="contact" class="panel">
-        <div class="panel-header">
-          <div class="panel-label">CONTACT</div>
-          <div class="panel-hint">Open to finance, investment, and analytics opportunities</div>
+      <section id="contact" class="section-block contact-section">
+        <div>
+          <span class="section-kicker">Contact</span>
+          <h2>Open to finance, investment, and analytics conversations.</h2>
         </div>
-
-        <div class="contact-grid">
-          <div class="contact-block">
-            <div class="contact-key">EMAIL</div>
-            <a href="mailto:tli.msc2026@ivey.ca" class="contact-link">tli.msc2026@ivey.ca</a>
-          </div>
-          <div class="contact-block">
-            <div class="contact-key">PHONE</div>
-            <a href="tel:+16476495888" class="contact-link">+1 (647) 649-5888</a>
-          </div>
-          <div class="contact-block">
-            <div class="contact-key">LINKEDIN</div>
-            <a href="https://www.linkedin.com/in/titannli/" target="_blank" rel="noopener noreferrer" class="contact-link">linkedin.com/in/titannli ↗</a>
-          </div>
-          <div class="contact-block">
-            <div class="contact-key">GITHUB</div>
-            <a href="https://github.com/Legend8583" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/Legend8583 ↗</a>
-          </div>
+        <div class="contact-actions">
+          <a href="mailto:tli.msc2026@ivey.ca">tli.msc2026@ivey.ca</a>
+          <a href="https://www.linkedin.com/in/titannli/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/Legend8583" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </section>
 
-      <!-- Footer -->
-      <footer class="t-footer">
-        <span><strong>DISCLAIMER</strong> — Personal portfolio for demonstration purposes. Not investment advice. All trading involves risk.</span>
-        <span>© <span id="year">2026</span> TITAN LI</span>
+      <footer class="footer">
+        <span>Personal portfolio for demonstration and research purposes. Not investment advice.</span>
+        <span>© <span id="year">2026</span> Titan Li</span>
       </footer>
-
     </main>
   </div>
 
-  <!-- Mobile Nav Overlay -->
   <div class="nav-overlay" id="navOverlay"></div>
-
   <script src="./main.js"></script>
 </body>
 </html>

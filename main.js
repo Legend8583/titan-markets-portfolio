@@ -1,15 +1,13 @@
-// ================================================
-// TITAN LI — TERMINAL PRO — JS
-// ================================================
+// Titan Li | Professional Markets Portfolio
 
 const LOGS = [
   {
     id: "TL-LOG-001",
-    title: "Earnings Setup — NVDA Call Spread",
+    title: "NVDA Earnings Call Spread",
     badge: "Earnings",
     badgeClass: "badge-earn",
-    summary: "Pre-earnings vertical call spread. Entry on consolidation break, 2% portfolio risk. Scaled exit at 25%/50% IV crush.",
-    tags: ["earnings", "options", "vol", "tech"],
+    summary: "Pre-earnings vertical call spread. Entry after consolidation break, defined downside, and staged exits after volatility compression.",
+    tags: ["earnings", "options", "volatility", "technology"],
     returnPct: "+140%",
     catalyst: "Earnings Beat",
     holdTime: "72h",
@@ -17,10 +15,10 @@ const LOGS = [
   },
   {
     id: "TL-LOG-002",
-    title: "SOXL Tactical Long — Post-Earnings Relief Bounce",
+    title: "SOXL Tactical Long",
     badge: "Macro + Catalyst",
     badgeClass: "badge-macro",
-    summary: "3x leveraged semi ETF for short-dated relief bounce after NVDA earnings. Entry $31.28 → exit $34.49.",
+    summary: "Short-dated leveraged semiconductor exposure after NVDA earnings. Entry on relief bounce setup with clear stop and exit discipline.",
     tags: ["soxl", "semiconductors", "catalyst", "mean-reversion", "tactical"],
     returnPct: "+10.26%",
     catalyst: "NVDA Earnings",
@@ -29,10 +27,10 @@ const LOGS = [
   },
   {
     id: "TL-LOG-003",
-    title: "POP MART (9992.HK) Tactical Long — Oversold Bounce",
+    title: "POP MART Tactical Long",
     badge: "Mean Reversion",
     badgeClass: "badge-mean",
-    summary: "Oversold bounce after 40% drawdown. Entry HKD 176–189 on excessive pessimism. Buyback validation.",
+    summary: "Oversold bounce after a sharp drawdown. Thesis built around excessive pessimism, buyback signal, and sentiment repair.",
     tags: ["9992.hk", "consumer", "oversold", "buyback", "tactical-long"],
     returnPct: "+27.5%",
     catalyst: "Sentiment Repair",
@@ -41,104 +39,109 @@ const LOGS = [
   }
 ];
 
-// ---- DOM refs ----
-let logBody, logCardsMobile, searchInput, filterSelect;
+let logBody;
+let logCardsMobile;
+let searchInput;
+let filterSelect;
 
-// ---- Utilities ----
 function uniqueTags(items) {
-  const s = new Set();
-  items.forEach(i => i.tags.forEach(t => s.add(t)));
-  return [...s].sort();
+  const tags = new Set();
+  items.forEach(item => item.tags.forEach(tag => tags.add(tag)));
+  return [...tags].sort();
 }
 
-function matches(log, q, tag) {
-  const text = `${log.id} ${log.title} ${log.summary} ${log.badge} ${log.tags.join(' ')}`.toLowerCase();
-  return (!q || text.includes(q)) && (tag === 'all' || log.tags.includes(tag));
+function matches(log, query, tag) {
+  const searchable = `${log.id} ${log.title} ${log.summary} ${log.badge} ${log.catalyst} ${log.tags.join(" ")}`.toLowerCase();
+  return (!query || searchable.includes(query)) && (tag === "all" || log.tags.includes(tag));
 }
 
-// ---- Render filter options ----
 function renderFilterOptions() {
   uniqueTags(LOGS).forEach(tag => {
-    const o = document.createElement('option');
-    o.value = tag;
-    o.textContent = tag.toUpperCase();
-    filterSelect.appendChild(o);
+    const option = document.createElement("option");
+    option.value = tag;
+    option.textContent = tag.replace(/-/g, " ");
+    filterSelect.appendChild(option);
   });
 }
 
-// ---- Render log TABLE (desktop) ----
+function openLog(log) {
+  if (log.link) window.location.href = log.link;
+}
+
 function renderLogTable() {
-  const q = (searchInput.value || '').trim().toLowerCase();
+  const query = (searchInput.value || "").trim().toLowerCase();
   const tag = filterSelect.value;
-  const filtered = LOGS.filter(l => matches(l, q, tag));
+  const filtered = LOGS.filter(log => matches(log, query, tag));
 
-  logBody.innerHTML = '';
+  logBody.innerHTML = "";
 
-  if (filtered.length === 0) {
-    logBody.innerHTML = `<tr><td colspan="6" class="log-empty">No matching trade logs.</td></tr>`;
+  if (!filtered.length) {
+    logBody.innerHTML = `<tr><td colspan="6" class="log-empty">No matching trading cases.</td></tr>`;
     return;
   }
 
   filtered.forEach(log => {
-    const isPos = log.returnPct.startsWith('+');
-    const tr = document.createElement('tr');
-    tr.onclick = () => { if (log.link) window.location.href = log.link; };
-    tr.innerHTML = `
+    const isPositive = log.returnPct.startsWith("+");
+    const row = document.createElement("tr");
+    row.tabIndex = 0;
+    row.setAttribute("role", "link");
+    row.setAttribute("aria-label", `Open ${log.title}`);
+    row.addEventListener("click", () => openLog(log));
+    row.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLog(log);
+      }
+    });
+
+    row.innerHTML = `
       <td class="td-id">${log.id}</td>
       <td>
         <div class="td-title">${log.title}</div>
         <div class="td-summary">${log.summary}</div>
-        <div class="td-tags">${log.tags.map(t => `<span class="td-tag">${t}</span>`).join('')}</div>
+        <div class="td-tags">${log.tags.map(tag => `<span class="td-tag">${tag}</span>`).join("")}</div>
       </td>
-      <td style="color:var(--fg-dim);font-size:11px;white-space:nowrap;">${log.catalyst || '—'}</td>
-      <td class="td-ret ${isPos ? 'pos' : 'neg'}">${log.returnPct}</td>
+      <td class="td-hold">${log.catalyst || "—"}</td>
+      <td class="td-ret ${isPositive ? "pos" : "neg"}">${log.returnPct}</td>
       <td class="td-hold">${log.holdTime}</td>
       <td><span class="td-type ${log.badgeClass}">${log.badge}</span></td>
     `;
-    logBody.appendChild(tr);
+    logBody.appendChild(row);
   });
 }
 
-// ---- Render log CARDS (mobile) ----
 function renderLogCards() {
-  const q = (searchInput.value || '').trim().toLowerCase();
+  const query = (searchInput.value || "").trim().toLowerCase();
   const tag = filterSelect.value;
-  const filtered = LOGS.filter(l => matches(l, q, tag));
+  const filtered = LOGS.filter(log => matches(log, query, tag));
 
-  logCardsMobile.innerHTML = '';
+  logCardsMobile.innerHTML = "";
 
-  if (filtered.length === 0) {
-    logCardsMobile.innerHTML = `<div class="log-empty">No matching trade logs.</div>`;
+  if (!filtered.length) {
+    logCardsMobile.innerHTML = `<div class="log-empty">No matching trading cases.</div>`;
     return;
   }
 
   filtered.forEach(log => {
-    const isPos = log.returnPct.startsWith('+');
-    const card = document.createElement('a');
-    card.className = 'log-card-m';
-    card.href = log.link || '#';
+    const isPositive = log.returnPct.startsWith("+");
+    const card = document.createElement("a");
+    card.className = "project-card";
+    card.href = log.link || "#";
     card.innerHTML = `
-      <div class="lcm-top">
-        <span class="lcm-id">${log.id}</span>
-        <span class="td-type ${log.badgeClass}">${log.badge}</span>
+      <div>
+        <div class="project-top">
+          <span>${log.id}</span>
+          <div><b>${log.badge}</b></div>
+        </div>
+        <h3>${log.title}</h3>
+        <p>${log.summary}</p>
+        <div class="td-tags">${log.tags.map(tag => `<span class="td-tag">${tag}</span>`).join("")}</div>
       </div>
-      <div class="lcm-title">${log.title}</div>
-      <div class="lcm-desc">${log.summary}</div>
-      <div class="lcm-metrics">
-        <div>
-          <div class="lcm-metric-label">RETURN</div>
-          <div class="lcm-metric-value" style="color:var(${isPos ? '--positive' : '--red'})">${log.returnPct}</div>
-        </div>
-        <div>
-          <div class="lcm-metric-label">HOLD</div>
-          <div class="lcm-metric-value" style="color:var(--fg-dim)">${log.holdTime}</div>
-        </div>
-        <div>
-          <div class="lcm-metric-label">CATALYST</div>
-          <div class="lcm-metric-value" style="color:var(--fg-dim);font-size:12px;">${log.catalyst || '—'}</div>
-        </div>
+      <div class="metric-strip" style="grid-template-columns:repeat(3,1fr);margin-top:18px;box-shadow:none;">
+        <div><strong style="font-size:20px;color:var(${isPositive ? "--green" : "--red"});">${log.returnPct}</strong><span>Return</span></div>
+        <div><strong style="font-size:20px;">${log.holdTime}</strong><span>Hold</span></div>
+        <div><strong style="font-size:16px;">${log.catalyst || "—"}</strong><span>Catalyst</span></div>
       </div>
-      <div class="lcm-tags">${log.tags.map(t => `<span class="td-tag">${t}</span>`).join('')}</div>
     `;
     logCardsMobile.appendChild(card);
   });
@@ -149,130 +152,113 @@ function renderLogs() {
   renderLogCards();
 }
 
-// ---- Sidebar active state tracking ----
 function setupScrollSpy() {
-  const sections = document.querySelectorAll('.panel[id]');
-  const links = document.querySelectorAll('.sid-link');
+  const sections = document.querySelectorAll(".section-block[id]");
+  const links = document.querySelectorAll(".nav-link");
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        links.forEach(l => {
-          l.classList.toggle('active', l.dataset.section === id);
-        });
-      }
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      links.forEach(link => link.classList.toggle("active", link.dataset.section === id));
     });
-  }, { rootMargin: '-20% 0px -70% 0px' });
+  }, { rootMargin: "-25% 0px -65% 0px" });
 
-  sections.forEach(s => observer.observe(s));
+  sections.forEach(section => observer.observe(section));
 }
 
-// ---- Mobile nav ----
 function setupMobileNav() {
-  const hamburger = document.getElementById('hamburger');
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('navOverlay');
+  const hamburger = document.getElementById("hamburger");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("navOverlay");
 
-  if (!hamburger || !sidebar) return;
+  if (!hamburger || !sidebar || !overlay) return;
 
-  function toggle() {
-    const isOpen = sidebar.classList.contains('open');
-    sidebar.classList.toggle('open');
-    hamburger.classList.toggle('active');
-    overlay.classList.toggle('active');
-    document.body.style.overflow = isOpen ? '' : 'hidden';
+  function setOpen(isOpen) {
+    sidebar.classList.toggle("open", isOpen);
+    hamburger.classList.toggle("active", isOpen);
+    overlay.classList.toggle("active", isOpen);
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
   }
 
-  function close() {
-    sidebar.classList.remove('open');
-    hamburger.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  hamburger.addEventListener('click', toggle);
-  overlay.addEventListener('click', close);
-  sidebar.querySelectorAll('.sid-link, .sid-action').forEach(a => {
-    a.addEventListener('click', close);
-  });
+  hamburger.addEventListener("click", () => setOpen(!sidebar.classList.contains("open")));
+  overlay.addEventListener("click", () => setOpen(false));
+  sidebar.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setOpen(false)));
 }
 
-// ---- Smooth scroll for sidebar ----
 function setupSmoothScroll() {
-  document.querySelectorAll('.sid-link').forEach(a => {
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  document.querySelectorAll(".nav-link[href^='#']").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 }
 
-// ---- Clock display ----
 function updateClock() {
-  const el = document.getElementById('clockDisplay');
-  if (!el) return;
+  const element = document.getElementById("clockDisplay");
+  if (!element) return;
   const now = new Date();
-  const opts = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-  el.textContent = now.toLocaleDateString('en-US', opts);
+  element.textContent = now.toLocaleString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  });
 }
 
-// ---- Keyboard shortcuts ----
-function setupKeyboard() {
-  document.addEventListener('keydown', e => {
-    // / to focus search
-    if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-      e.preventDefault();
-      searchInput.focus();
+function setupKeyboardShortcuts() {
+  document.addEventListener("keydown", event => {
+    const activeTag = document.activeElement?.tagName;
+    const isTyping = ["INPUT", "TEXTAREA", "SELECT"].includes(activeTag);
+
+    if (event.key === "/" && !isTyping) {
+      event.preventDefault();
+      searchInput?.focus();
+      return;
     }
-    // 1-6 to jump sections
-    if (!['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-      const map = { '1': '#hero', '2': '#logs', '3': '#notes', '4': '#projects', '5': '#about', '6': '#contact' };
-      if (map[e.key]) {
-        e.preventDefault();
-        document.querySelector(map[e.key])?.scrollIntoView({ behavior: 'smooth' });
-      }
+
+    if (isTyping) return;
+    const destinations = { "1": "#hero", "2": "#logs", "3": "#notes", "4": "#projects", "5": "#about", "6": "#contact" };
+    if (destinations[event.key]) {
+      event.preventDefault();
+      document.querySelector(destinations[event.key])?.scrollIntoView({ behavior: "smooth" });
     }
   });
 }
 
-// ---- Init ----
 function init() {
-  logBody = document.getElementById('logBody');
-  logCardsMobile = document.getElementById('logCardsMobile');
-  searchInput = document.getElementById('q');
-  filterSelect = document.getElementById('filter');
+  logBody = document.getElementById("logBody");
+  logCardsMobile = document.getElementById("logCardsMobile");
+  searchInput = document.getElementById("q");
+  filterSelect = document.getElementById("filter");
 
-  if (!logBody || !searchInput || !filterSelect) {
-    console.error('Missing DOM elements');
-    return;
-  }
+  if (!logBody || !logCardsMobile || !searchInput || !filterSelect) return;
 
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
   renderFilterOptions();
   renderLogs();
-
-  searchInput.addEventListener('input', renderLogs);
-  filterSelect.addEventListener('change', renderLogs);
-
   setupScrollSpy();
   setupMobileNav();
   setupSmoothScroll();
-  setupKeyboard();
+  setupKeyboardShortcuts();
+
+  searchInput.addEventListener("input", renderLogs);
+  filterSelect.addEventListener("change", renderLogs);
 
   updateClock();
-  setInterval(updateClock, 1000);
-
-  console.log('Terminal Pro initialized ✓');
+  setInterval(updateClock, 60000);
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
 } else {
   init();
 }
