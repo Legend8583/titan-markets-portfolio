@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TL-NOTE-004: Fading FOMO — Titan Li</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .note-detail {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .note-header {
+      margin-bottom: 40px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+    .note-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .note-subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .section {
+      background: var(--card-glass);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 24px 0;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin: 0 0 20px;
+      color: var(--text);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+    .section h3 {
+      font-size: 16px;
+      margin: 24px 0 12px;
+      color: var(--accent);
+    }
+    .section p, .section li {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 12px 0;
+    }
+    .section ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+    .highlight {
+      background: rgba(107, 158, 255, 0.10);
+      border-left: 3px solid var(--accent);
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 6px;
+    }
+    .risk-box {
+      background: rgba(255, 107, 157, 0.10);
+      border-left: 3px solid #ff6b9d;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 6px;
+    }
+    .framework {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+    .framework span {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 10px;
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      font-size: 13px;
+      text-align: center;
+    }
+    .mini {
+      font-size: 13px;
+      color: var(--muted);
+      opacity: 0.95;
+    }
+    @media (max-width: 720px) {
+      .note-title {
+        font-size: 30px;
+      }
+      .section {
+        padding: 24px;
+      }
+      .framework {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <img class="avatar" src="../avatar.png" alt="Titan Li" onerror="this.style.display='none'">
+        <div class="title">
+          <h1>Titan Li</h1>
+          <div class="sub">Market Observation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-detail">
+    <a href="../index.html#notes" class="back-link">&larr; Back to Portfolio</a>
+
+    <div class="note-header">
+      <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+        <span class="badge">Trading Framework</span>
+        <span class="tradeId">TL-NOTE-004</span>
+      </div>
+      <h1 class="note-title">Fading FOMO: A Small Position Framework for Trading Retail Momentum Exhaustion</h1>
+      <p class="note-subtitle">
+        How I think about short-term attention cycles, volume exhaustion, and risk management in extreme momentum stocks.
+      </p>
+
+      <div class="tags" style="margin-top: 16px;">
+        <span class="tag">attention-cycle</span>
+        <span class="tag">volume-exhaustion</span>
+        <span class="tag">risk-management</span>
+        <span class="tag">short-term-trading</span>
+        <span class="tag">mean-reversion</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Introduction</h2>
+      <p>
+        One short-term setup I have been studying is the fade of extreme retail-driven momentum stocks. These are not
+        traditional value shorts, and I do not treat them as long-term fundamental calls. Instead, I view them as
+        attention-cycle trades. When a stock moves several hundred percent in a short period of time because of a headline
+        catalyst, retail excitement, rebranding, AI-related language, or squeeze dynamics, the market can temporarily stop
+        pricing the business and start pricing attention.
+      </p>
+      <p>
+        Recent examples such as BIRD, MYSE, and CAR are useful not because they are identical, but because they show how
+        quickly price can separate from normal valuation discussion when liquidity, narrative, and positioning compress into
+        a short window. My interest is not in declaring that every parabolic move must collapse. It is in studying when the
+        fuel behind the move begins to fade.
+      </p>
+      <div class="highlight">
+        <p style="margin: 0;">
+          The framework I care about is: headline catalyst, retail inflow, volume climax, failed continuation, then possible
+          mean reversion. The setup only becomes interesting when the attention cycle starts losing strength.
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Why I Do Not Short the First Green Day</h2>
+      <p>
+        The first day is usually for observation, not immediate execution. A stock that is up several hundred percent can
+        still be early in its attention cycle. The initial catalyst may be fresh, short sellers may still be under pressure,
+        and late momentum buyers may not have fully entered yet.
+      </p>
+      <p>
+        Shorting the first large candle just because the move looks unreasonable can be a dangerous habit. The market does
+        not need to become reasonable on my timeline. In many cases, the first move belongs to the crowd, and fighting it
+        too early turns the trade into an ego decision rather than a risk-controlled setup.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>What I Look For on Day One</h2>
+      <p>
+        I tend to look for moves that are extreme enough to become visible. A 50% or 100% move can be meaningful, but it may
+        not be unusual enough to pull in broad retail attention. For this specific framework, I usually want to see something
+        closer to a 600% to 1000% type of move, or a similarly abnormal breakout relative to the stock's own trading history.
+      </p>
+      <p>
+        Volume matters as much as price. If day-one volume is already weak, the setup is less interesting to me because the
+        name may not attract enough second-day participation. I want to see liquidity, visibility, and enough market attention
+        for the trade to become crowded before I think about fading it.
+      </p>
+      <ul>
+        <li>Was the move large enough to become a market-wide talking point?</li>
+        <li>Was volume meaningfully above normal?</li>
+        <li>Is the catalyst easy for retail traders to understand and repeat?</li>
+        <li>Is the stock still trading on attention rather than business fundamentals?</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Why Second-Day Participation Matters</h2>
+      <p>
+        I do not want to short blindly into the initial catalyst. I want to see whether late momentum buyers enter after the
+        first-day move. That second wave is important because it can create the conditions for exhaustion later in the week.
+      </p>
+      <p>
+        A clean setup often needs the stock to stay elevated long enough for more participants to notice it. The attention
+        cycle becomes more complete when the story spreads, volume expands, and traders who missed the first move begin
+        chasing continuation. Without that participation, the move may simply fade quietly rather than create a defined short
+        setup.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Volume Exhaustion as the Main Signal</h2>
+      <p>
+        The actual short setup becomes more interesting when price remains elevated but the quality of continuation starts
+        declining. I am watching for weaker follow-through, fading volume, unstable pushes, and failed attempts to reclaim
+        the prior high. The question is not whether the stock is expensive. The question is whether the crowd is running out
+        of new buyers.
+      </p>
+      <div class="framework" aria-label="Attention cycle framework">
+        <span>Headline catalyst</span>
+        <span>Retail inflow</span>
+        <span>Volume climax</span>
+        <span>Failed continuation</span>
+        <span>Mean reversion risk</span>
+      </div>
+      <p>
+        In many cases, once the temporary attention cycle fades, the stock often retraces toward its pre-catalyst range.
+        That is not a certainty, and it should never be treated like one. It is simply the market behavior I am trying to
+        observe when the move appears to be driven more by temporary liquidity than durable fundamentals.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Position Sizing and Stop-Loss Discipline</h2>
+      <p>
+        Small position sizing matters more than being perfectly right. These stocks can squeeze violently, and a thesis can
+        be directionally reasonable but still lose money if the position is too large or the stop is undefined. I would rather
+        be patient and small than try to call the exact top with one full-size entry.
+      </p>
+      <p>
+        My preferred approach is to build the short in small tranches only if the exhaustion pattern becomes clearer. The
+        stop-loss has to be defined before entry. If the stock breaks above the prior exhaustion area with strong volume, the
+        setup is invalidated. At that point, adding just because the move "doesn't make sense" is not discipline; it is
+        emotional averaging.
+      </p>
+      <div class="risk-box">
+        <p style="margin: 0;">
+          The risk is that the crowd is not finished. A small short can become manageable risk. An oversized short in a
+          squeeze can become a forced decision.
+        </p>
+      </div>
+      <p>
+        After entering, I do not want to over-monitor every candle. Once the position is sized small and the stop is defined,
+        the goal is to let the thesis play out instead of reacting emotionally to every intraday move.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Why This Is Not Value Investing</h2>
+      <p>
+        This is not a long-term judgment on the company. It is not a claim that the business has no value, or that every
+        excited buyer is wrong. It is an event-driven, sentiment-driven, short-term setup based on attention, liquidity,
+        volume exhaustion, and risk control.
+      </p>
+      <p>
+        That distinction matters. A value short needs a durable fundamental thesis. This framework is much narrower. I am
+        only asking whether a temporary attention cycle has pushed price far beyond the level of sustainable participation,
+        and whether that participation is beginning to fade.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Final Takeaway</h2>
+      <p>
+        The goal is not to fight every momentum stock. The goal is to wait until FOMO begins to lose fuel. I want the move to
+        be visible enough, crowded enough, and extended enough before I even consider the fade. Then the trade has to be small,
+        predefined, and easy to walk away from if invalidated.
+      </p>
+      <p>
+        The first move usually belongs to the crowd. The fade only becomes interesting when the crowd starts running out of
+        new buyers.
+      </p>
+      <p class="mini">
+        This note is a personal market observation and trading framework. It is not investment advice, a trade recommendation,
+        or a guaranteed strategy.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
